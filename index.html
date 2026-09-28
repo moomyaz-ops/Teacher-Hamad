@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>هل تجب فيها الزكاة؟</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:#f5f3ee;
+  color:#20252b;
+  line-height:1.7
+}
+.container{
+  max-width:760px;
+  margin:auto;
+  padding:18px
+}
+header{text-align:center;margin-bottom:18px}
+h1{margin:5px 0;font-size:30px}
+.subtitle{color:#666;margin:0}
+
+.progress{
+  height:9px;
+  background:#ddd;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:18px
+}
+#bar{
+  height:100%;
+  background:#176b55;
+  transition:.25s
+}
+.meta{
+  display:flex;
+  justify-content:space-between;
+  margin:8px 0 15px;
+  color:#666;
+  font-size:14px
+}
+
+.card{
+  background:white;
+  border:1px solid #ddd7cc;
+  border-radius:18px;
+  padding:20px
+}
+.topic{
+  display:inline-block;
+  background:#e9f4ef;
+  color:#176b55;
+  padding:4px 11px;
+  border-radius:20px;
+  font-weight:bold;
+  font-size:14px
+}
+.case{
+  font-size:19px;
+  font-weight:bold;
+  margin:15px 0 20px
+}
+.label{
+  font-weight:bold;
+  margin:16px 0 8px
+}
+.options{
+  display:grid;
+  gap:9px
+}
+.option{
+  width:100%;
+  min-height:48px;
+  border:1px solid #ccc;
+  border-radius:12px;
+  background:white;
+  padding:11px 13px;
+  text-align:right;
+  font-size:16px;
+  cursor:pointer
+}
+.option.selected{
+  border:2px solid #176b55;
+  background:#e9f4ef
+}
+.option:disabled{opacity:.8}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:18px
+}
+button{font-family:inherit}
+.mainbtn{
+  flex:1;
+  border:0;
+  border-radius:12px;
+  background:#176b55;
+  color:white;
+  padding:12px;
+  font-size:16px;
+  font-weight:bold
+}
+.mainbtn:disabled{opacity:.4}
+.nextbtn{
+  flex:1;
+  border:1px solid #bbb;
+  border-radius:12px;
+  background:white;
+  padding:12px;
+  font-size:16px;
+  font-weight:bold
+}
+.feedback{
+  display:none;
+  padding:12px;
+  border-radius:12px;
+  margin-top:16px
+}
+.correct{
+  display:block;
+  background:#e9f4ef;
+  border:1px solid #b6dacb
+}
+.wrong{
+  display:block;
+  background:#fff7df;
+  border:1px solid #ead69a
+}
+.result{
+  text-align:center;
+  display:none
+}
+.score{
+  font-size:42px;
+  color:#176b55;
+  font-weight:bold
+}
+
+@media(max-width:520px){
+  .container{padding:13px}
+  h1{font-size:25px}
+  .card{padding:16px}
+  .case{font-size:17px}
+  .actions{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<h1>هل تجب فيها الزكاة؟</h1>
+<p class="subtitle">
+اقرأ كل موقف، ثم حدّد الحكم والسبب المؤثر فيه.
+إذا أخطأت فاستفد من التلميح وحاول مرة أخرى.
+</p>
+</header>
+
+<div id="activity">
+
+<div class="progress">
+<div id="bar"></div>
+</div>
+
+<div class="meta">
+<span id="counter"></span>
+<span id="firstScore"></span>
+</div>
+
+<div class="card">
+
+<span class="topic" id="topic"></span>
+
+<div class="case" id="caseText"></div>
+
+<div class="label">أولًا: ما الحكم؟</div>
+<div class="options" id="judgments"></div>
+
+<div class="label">ثانيًا: ما السبب المؤثر في الحكم؟</div>
+<div class="options" id="reasons"></div>
+
+<div id="feedback" class="feedback"></div>
+
+<div class="actions">
+<button id="check" class="mainbtn" disabled>
+تحقق من القرار
+</button>
+
+<button id="next" class="nextbtn" style="display:none">
+الموقف التالي
+</button>
+</div>
+
+</div>
+</div>
+
+<div id="result" class="card result">
+<h2>اكتمل النشاط</h2>
+<div class="score" id="finalScore"></div>
+<p id="finalMessage"></p>
+<p id="helped"></p>
+<button class="mainbtn" onclick="restart()">
+إعادة النشاط
+</button>
+</div>
+
+</div>
+
+<script>
+const cases = [
+
+{
+topic:"بهيمة الأنعام",
+text:"يملك سعد 35 بقرة، أعدّها للاستفادة من ألبانها ونسلها، لكنه يعلفها بعلف اشتراه طوال العام.",
+judgment:"لا تجب الزكاة",
+reasons:[
+"بلغت النصاب، لكن شرط السوم لم يتحقق.",
+"عدد البقر أقل من النصاب.",
+"لأن البقر لا زكاة فيها."
+],
+correctReason:0,
+hint:"راجع شرط السوم: هل كانت البقر ترعى طوال العام أو أكثره؟",
+feedback:"لا تجب الزكاة؛ لأنها ليست سائمة، مع أن عددها بلغ نصاب البقر وهو ثلاثون."
+},
+
+{
+topic:"بهيمة الأنعام",
+text:"يملك خالد 7 من الإبل، ترعى في الصحراء أكثر العام، وقد أعدّها للاستفادة من ألبانها ونسلها.",
+judgment:"تجب الزكاة",
+reasons:[
+"بلغت نصاب الإبل، وهي سائمة ومعدّة للاستفادة من ألبانها أو نسلها.",
+"لأن كل ما يملكه الإنسان من الإبل تجب فيه الزكاة.",
+"لأنها ترعى بعض العام فقط."
+],
+correctReason:0,
+hint:"افحص ثلاثة أمور: العدد، والسوم، والغرض من تربيتها.",
+feedback:"تجب الزكاة؛ فنصاب الإبل خمس، وقد بلغته، وهي سائمة ومعدّة للاستفادة من ألبانها أو نسلها."
+},
+
+{
+topic:"الحبوب والثمار",
+text:"يملك مزارع وقت الحصاد 950 كجم من الأرز، وهو مما يُدَّخر ويُكال.",
+judgment:"تجب الزكاة",
+reasons:[
+"تحققت شروط الادخار والكيل والملكية، وبلغ المقدار النصاب المذكور في الدرس.",
+"لأن كل ما يخرج من الأرض تجب فيه الزكاة.",
+"لأن الوزن وحده هو شرط وجوب الزكاة."
+],
+correctReason:0,
+hint:"لا تنظر إلى الكمية وحدها؛ افحص الادخار والكيل والنصاب والملكية وقت الوجوب.",
+feedback:"تجب الزكاة؛ فقد تحقق الادخار والكيل والملكية، وبلغ المقدار النصاب المذكور في الدرس: 900 كجم تقريبًا."
+},
+
+{
+topic:"الحبوب والثمار",
+text:"يملك مزارع وقت الحصاد كمية كبيرة من الخيار تزيد على 900 كجم.",
+judgment:"لا تجب الزكاة",
+reasons:[
+"الخيار لا يُدَّخر، وذكر الدرس أنه مما يباع بالوزن لا بالكيل.",
+"لأن الكمية أقل من النصاب.",
+"لأن الملكية وقت الحصاد تمنع الزكاة."
+],
+correctReason:0,
+hint:"وجود كمية كبيرة لا يكفي. راجع شرطي الادخار والكيل.",
+feedback:"لا تجب الزكاة؛ فالخيار مما لا يُدَّخر، وذكر المقرر أنه مما يباع بالوزن لا بالكيل."
+},
+
+{
+topic:"الأثمان",
+text:"يملك شخص 10,000 ريال، وهي أوراق نقدية بلغت النصاب. يريد معرفة حكمها ومقدار الواجب فيها.",
+judgment:"تجب الزكاة",
+reasons:[
+"الأوراق النقدية من الأثمان، ومقدار الواجب فيها ربع العشر (2.5%).",
+"الواجب في الأوراق النقدية نصف العشر.",
+"نصاب الأوراق النقدية هو 10,000 ريال دائمًا."
+],
+correctReason:0,
+hint:"راجع نوع المال أولًا، ثم مقدار الواجب في الأثمان.",
+feedback:"تجب الزكاة؛ فالأوراق النقدية من الأثمان، ومقدار الواجب فيها ربع العشر (2.5%)."
+},
+
+{
+topic:"عروض التجارة",
+text:"اشترى رجل سيارة ليؤجرها للناس، ولم يُعدّ السيارة للبيع. هل تجب الزكاة في عين السيارة؟",
+judgment:"لا تجب الزكاة في عين المال",
+reasons:[
+"العروض المعدّة للإيجار لا زكاة في عينها، وإنما الزكاة في أجرتها إذا بلغت نصابًا وحال عليها الحول.",
+"كل سيارة تحقق ربحًا تعد من عروض التجارة المعدّة للبيع.",
+"لا زكاة في السيارة ولا في أجرتها مطلقًا."
+],
+correctReason:0,
+hint:"ميّز بين الشيء المعد للبيع والشيء المعد للإيجار.",
+feedback:"لا تجب الزكاة في عين السيارة المعدّة للإيجار؛ وإنما الزكاة في أجرتها إذا بلغت نصابًا وحال عليها الحول."
+}
+
+];
+
+let index=0;
+let firstCorrect=0;
+let afterHint=0;
+let attempts=0;
+let selectedJudgment=null;
+let selectedReason=null;
+
+const topic=document.getElementById("topic");
+const caseText=document.getElementById("caseText");
+const judgments=document.getElementById("judgments");
+const reasons=document.getElementById("reasons");
+const feedback=document.getElementById("feedback");
+const check=document.getElementById("check");
+const next=document.getElementById("next");
+
+function createOptions(container,items,type){
+
+container.innerHTML="";
+
+items.forEach((item,i)=>{
+
+const btn=document.createElement("button");
+btn.className="option";
+btn.textContent=item;
+
+btn.onclick=function(){
+
+[...container.children].forEach(x=>
+x.classList.remove("selected")
+);
+
+btn.classList.add("selected");
+
+if(type==="judgment"){
+selectedJudgment=item;
+}else{
+selectedReason=i;
+}
+
+check.disabled=
+selectedJudgment===null ||
+selectedReason===null;
+
+};
+
+container.appendChild(btn);
+
+});
+
+}
+
+function render(){
+
+const c=cases[index];
+
+attempts=0;
+selectedJudgment=null;
+selectedReason=null;
+
+topic.textContent=c.topic;
+caseText.textContent=c.text;
+
+document.getElementById("counter").textContent=
+"الموقف "+(index+1)+" من "+cases.length;
+
+document.getElementById("firstScore").textContent=
+"من المحاولة الأولى: "+firstCorrect;
+
+document.getElementById("bar").style.width=
+((index+1)/cases.length*100)+"%";
+
+let judgmentOptions;
+
+if(c.judgment==="لا تجب الزكاة في عين المال"){
+judgmentOptions=[
+"تجب الزكاة",
+"لا تجب الزكاة في عين المال"
+];
+}else{
+judgmentOptions=[
+"تجب الزكاة",
+"لا تجب الزكاة"
+];
+}
+
+createOptions(
+judgments,
+judgmentOptions,
+"judgment"
+);
+
+createOptions(
+reasons,
+c.reasons,
+"reason"
+);
+
+feedback.className="feedback";
+feedback.textContent="";
+
+check.style.display="block";
+check.disabled=true;
+
+next.style.display="none";
+
+}
+
+check.onclick=function(){
+
+const c=cases[index];
+
+attempts++;
+
+const correct=
+selectedJudgment===c.judgment &&
+selectedReason===c.correctReason;
+
+if(correct){
+
+if(attempts===1){
+firstCorrect++;
+}else{
+afterHint++;
+}
+
+feedback.className=
+"feedback correct";
+
+feedback.textContent=
+"صحيح: "+c.feedback;
+
+document.querySelectorAll(".option")
+.forEach(x=>x.disabled=true);
+
+check.style.display="none";
+next.style.display="block";
+
+document.getElementById("firstScore")
+.textContent=
+"من المحاولة الأولى: "+firstCorrect;
+
+}else{
+
+feedback.className=
+"feedback wrong";
+
+feedback.textContent=
+"حاول مرة أخرى. تلميح: "+c.hint;
+
+}
+
+};
+
+next.onclick=function(){
+
+index++;
+
+if(index<cases.length){
+render();
+}else{
+finish();
+}
+
+};
+
+function finish(){
+
+document.getElementById("activity")
+.style.display="none";
+
+document.getElementById("result")
+.style.display="block";
+
+document.getElementById("finalScore")
+.textContent=
+firstCorrect+" / "+cases.length;
+
+let message;
+
+if(firstCorrect===6){
+message=
+"أتقنت تطبيق الأحكام والضوابط في المواقف المعروضة.";
+}
+else if(firstCorrect>=4){
+message=
+"فهمك جيد. راجع المواقف التي احتجت فيها إلى التلميح.";
+}
+else{
+message=
+"تحتاج إلى مراجعة شروط وضوابط الأموال الزكوية ثم إعادة النشاط.";
+}
+
+document.getElementById("finalMessage")
+.textContent=message;
+
+document.getElementById("helped")
+.textContent=
+"مواقف أُتقنت بعد التلميح: "+afterHint;
+
+}
+
+function restart(){
+
+index=0;
+firstCorrect=0;
+afterHint=0;
+
+document.getElementById("result")
+.style.display="none";
+
+document.getElementById("activity")
+.style.display="block";
+
+render();
+
+}
+
+render();
+
+</script>
+
+</body>
+</html>
