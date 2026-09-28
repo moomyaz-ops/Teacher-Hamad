@@ -1,390 +1,1490 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>هل تجب فيها الزكاة؟</title>
 
 <style>
-*{box-sizing:border-box}
+
+:root{
+  --green:#16785f;
+  --green-dark:#105e4b;
+  --green-light:#eaf8f3;
+  --blue:#2563a9;
+  --blue-light:#edf5ff;
+  --gold:#c78b21;
+  --gold-light:#fff7df;
+  --red:#c73d45;
+  --red-light:#fff0f1;
+  --text:#263238;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --background:#f4f7f6;
+}
+
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:Tahoma,Arial,sans-serif;
-  background:#f5f3ee;
-  color:#20252b;
-  line-height:1.7
-}
-.container{
-  max-width:760px;
-  margin:auto;
-  padding:18px
-}
-header{text-align:center;margin-bottom:18px}
-h1{margin:5px 0;font-size:30px}
-.subtitle{color:#666;margin:0}
+  color:var(--text);
+  min-height:100vh;
 
-.progress{
-  height:9px;
-  background:#ddd;
-  border-radius:20px;
+  background:
+    radial-gradient(circle at top right,#e5f5ef 0,transparent 30%),
+    radial-gradient(circle at top left,#edf5ff 0,transparent 28%),
+    var(--background);
+}
+
+.container{
+  max-width:780px;
+  margin:auto;
+  padding:15px 14px 40px;
+}
+
+
+/* =========================
+   هوية المدرسة
+========================= */
+
+.schoolHeader{
+  position:relative;
   overflow:hidden;
-  margin-top:18px
+
+  background:
+    linear-gradient(135deg,#105e4b,#18836a);
+
+  color:white;
+  text-align:center;
+
+  border-radius:25px;
+  padding:23px 18px 20px;
+
+  box-shadow:
+    0 12px 30px rgba(22,90,70,.18);
+
+  margin-bottom:15px;
 }
-#bar{
+
+.schoolHeader::before{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  background:rgba(255,255,255,.05);
+  top:-90px;
+  right:-60px;
+}
+
+.schoolHeader::after{
+  content:"";
+  position:absolute;
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  background:rgba(255,255,255,.04);
+  bottom:-75px;
+  left:-45px;
+}
+
+.schoolLogoBox{
+  position:relative;
+  z-index:1;
+
+  width:94px;
+  height:94px;
+
+  margin:0 auto 9px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:white;
+  border-radius:20px;
+  padding:6px;
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,.16);
+}
+
+.schoolLogo{
+  width:100%;
   height:100%;
-  background:#176b55;
-  transition:.25s
+  object-fit:contain;
+  border-radius:14px;
 }
-.meta{
+
+.schoolName{
+  position:relative;
+  z-index:1;
+
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.identityLine{
+  position:relative;
+  z-index:1;
+
+  width:65px;
+  height:3px;
+  background:rgba(255,255,255,.45);
+
+  border-radius:10px;
+  margin:0 auto 15px;
+}
+
+.activityIcon{
+  position:relative;
+  z-index:1;
+
+  width:48px;
+  height:48px;
+
+  margin:0 auto 7px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  border-radius:15px;
+
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.20);
+
+  font-size:25px;
+}
+
+.schoolHeader h1{
+  position:relative;
+  z-index:1;
+
+  margin:4px 0 7px;
+
+  font-size:29px;
+  line-height:1.4;
+}
+
+.subjectName{
+  position:relative;
+  z-index:1;
+
+  display:inline-block;
+
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.20);
+
+  border-radius:20px;
+
+  padding:5px 13px;
+
+  font-size:13px;
+  font-weight:bold;
+
+  margin-bottom:8px;
+}
+
+.subtitle{
+  position:relative;
+  z-index:1;
+
+  max-width:590px;
+  margin:8px auto 0;
+
+  color:rgba(255,255,255,.94);
+
+  font-size:14px;
+  line-height:1.9;
+}
+
+.teacherName{
+  position:relative;
+  z-index:1;
+
+  margin-top:15px;
+  padding-top:11px;
+
+  border-top:
+    1px solid rgba(255,255,255,.20);
+
+  font-size:13px;
+  font-weight:bold;
+}
+
+
+/* =========================
+   شريط التقدم
+========================= */
+
+.progressBox{
+  background:white;
+
+  border-radius:18px;
+
+  padding:14px 15px;
+
+  margin-bottom:14px;
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.05);
+
+  border:1px solid #e9eceb;
+}
+
+.progressInfo{
   display:flex;
   justify-content:space-between;
-  margin:8px 0 15px;
-  color:#666;
-  font-size:14px
+  align-items:center;
+
+  gap:10px;
+
+  font-size:14px;
+
+  margin-bottom:9px;
 }
+
+#mastery{
+  color:var(--green);
+  font-weight:bold;
+}
+
+.progressTrack{
+  height:10px;
+
+  background:#e9eeec;
+
+  border-radius:20px;
+
+  overflow:hidden;
+}
+
+#bar{
+  height:100%;
+  width:0;
+
+  background:
+    linear-gradient(90deg,var(--green),#43b98f);
+
+  border-radius:20px;
+
+  transition:.35s ease;
+}
+
+
+/* =========================
+   بطاقة الموقف
+========================= */
 
 .card{
   background:white;
-  border:1px solid #ddd7cc;
-  border-radius:18px;
-  padding:20px
+
+  border:
+    1px solid #e7ebe9;
+
+  border-radius:23px;
+
+  padding:20px;
+
+  box-shadow:
+    0 10px 30px rgba(35,55,50,.07);
 }
+
+.caseHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:10px;
+
+  margin-bottom:15px;
+}
+
+.caseNumber{
+  width:47px;
+  height:47px;
+
+  flex:0 0 47px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:15px;
+
+  background:var(--blue-light);
+  color:var(--blue);
+
+  font-weight:bold;
+  font-size:20px;
+}
+
 .topic{
-  display:inline-block;
-  background:#e9f4ef;
-  color:#176b55;
-  padding:4px 11px;
-  border-radius:20px;
+  display:inline-flex;
+  align-items:center;
+
+  background:var(--green-light);
+  color:var(--green);
+
+  border-radius:30px;
+
+  padding:7px 13px;
+
   font-weight:bold;
-  font-size:14px
+  font-size:14px;
 }
-.case{
-  font-size:19px;
+
+.caseText{
+  background:#fafbfb;
+
+  border-right:
+    4px solid var(--gold);
+
+  border-radius:13px;
+
+  padding:15px;
+
+  font-size:18px;
   font-weight:bold;
-  margin:15px 0 20px
+
+  line-height:1.9;
+
+  margin-bottom:20px;
 }
-.label{
+
+
+/* =========================
+   الأسئلة والخيارات
+========================= */
+
+.sectionTitle{
   font-weight:bold;
-  margin:16px 0 8px
+
+  margin:17px 0 9px;
+
+  font-size:15px;
 }
+
+.sectionTitle span{
+  color:var(--green);
+}
+
 .options{
   display:grid;
-  gap:9px
+  gap:9px;
 }
+
 .option{
   width:100%;
-  min-height:48px;
-  border:1px solid #ccc;
-  border-radius:12px;
+
+  min-height:52px;
+
+  padding:12px 15px;
+
+  border:
+    1.5px solid #dfe4e2;
+
+  border-radius:14px;
+
   background:white;
-  padding:11px 13px;
+
+  color:var(--text);
+
+  font-family:inherit;
+  font-size:15px;
+  line-height:1.7;
+
   text-align:right;
-  font-size:16px;
-  cursor:pointer
+
+  cursor:pointer;
+
+  transition:
+    background .18s ease,
+    border .18s ease,
+    transform .18s ease;
 }
+
+.option:hover{
+  border-color:#a8c9bd;
+  background:#fbfefd;
+}
+
 .option.selected{
-  border:2px solid #176b55;
-  background:#e9f4ef
+  border:
+    2px solid var(--blue);
+
+  background:var(--blue-light);
+
+  color:#174c7e;
+
+  font-weight:bold;
 }
-.option:disabled{opacity:.8}
+
+
+/* الإجابة الصحيحة */
+
+.option.correctOption{
+  border:
+    2px solid #20a37a;
+
+  background:var(--green-light);
+
+  color:#105e4b;
+
+  font-weight:bold;
+}
+
+
+/* الإجابة الخاطئة */
+
+.option.wrongOption{
+  border:
+    2px solid var(--red);
+
+  background:var(--red-light);
+
+  color:#a92d35;
+
+  font-weight:bold;
+}
+
+
+/* =========================
+   التغذية الراجعة
+========================= */
+
+.feedback{
+  display:none;
+
+  margin-top:18px;
+
+  border-radius:16px;
+
+  padding:15px;
+
+  line-height:1.8;
+}
+
+.feedback.correct{
+  display:block;
+
+  background:var(--green-light);
+
+  border:
+    1px solid #a9ddca;
+
+  color:#155f4d;
+
+  animation:pop .25s ease;
+}
+
+.feedback.wrong{
+  display:block;
+
+  background:var(--red-light);
+
+  border:
+    1px solid #efb8bc;
+
+  color:#9f3037;
+
+  animation:shake .25s ease;
+}
+
+.feedbackTitle{
+  font-weight:bold;
+  font-size:17px;
+
+  margin-bottom:4px;
+}
+
+
+/* =========================
+   التلميح
+========================= */
+
+.hint{
+  display:none;
+
+  margin-top:10px;
+
+  background:var(--gold-light);
+
+  border:
+    1px solid #edd798;
+
+  border-radius:13px;
+
+  padding:11px 13px;
+
+  color:#735418;
+}
+
+.hint.show{
+  display:block;
+}
+
+
+/* =========================
+   الأزرار
+========================= */
 
 .actions{
   display:flex;
+
   gap:10px;
-  margin-top:18px
-}
-button{font-family:inherit}
-.mainbtn{
-  flex:1;
-  border:0;
-  border-radius:12px;
-  background:#176b55;
-  color:white;
-  padding:12px;
-  font-size:16px;
-  font-weight:bold
-}
-.mainbtn:disabled{opacity:.4}
-.nextbtn{
-  flex:1;
-  border:1px solid #bbb;
-  border-radius:12px;
-  background:white;
-  padding:12px;
-  font-size:16px;
-  font-weight:bold
-}
-.feedback{
-  display:none;
-  padding:12px;
-  border-radius:12px;
-  margin-top:16px
-}
-.correct{
-  display:block;
-  background:#e9f4ef;
-  border:1px solid #b6dacb
-}
-.wrong{
-  display:block;
-  background:#fff7df;
-  border:1px solid #ead69a
-}
-.result{
-  text-align:center;
-  display:none
-}
-.score{
-  font-size:42px;
-  color:#176b55;
-  font-weight:bold
+
+  margin-top:19px;
 }
 
-@media(max-width:520px){
-  .container{padding:13px}
-  h1{font-size:25px}
-  .card{padding:16px}
-  .case{font-size:17px}
-  .actions{flex-direction:column}
+.mainBtn,
+.nextBtn{
+  flex:1;
+
+  border-radius:14px;
+
+  padding:13px;
+
+  font-family:inherit;
+
+  font-size:16px;
+  font-weight:bold;
+
+  cursor:pointer;
 }
+
+.mainBtn{
+  border:0;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--green),
+      #20a37a
+    );
+
+  color:white;
+
+  box-shadow:
+    0 5px 15px rgba(22,120,95,.18);
+}
+
+.mainBtn:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+}
+
+.nextBtn{
+  border:
+    1.5px solid var(--green);
+
+  background:white;
+
+  color:var(--green);
+}
+
+
+/* =========================
+   النتيجة النهائية
+========================= */
+
+.result{
+  display:none;
+  text-align:center;
+}
+
+.trophy{
+  width:80px;
+  height:80px;
+
+  margin:0 auto 10px;
+
+  border-radius:25px;
+
+  background:var(--gold-light);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:40px;
+}
+
+.result h2{
+  margin:8px 0;
+  font-size:27px;
+}
+
+.scoreCircle{
+  width:130px;
+  height:130px;
+
+  border-radius:50%;
+
+  margin:20px auto;
+
+  background:var(--green-light);
+
+  border:
+    8px solid #c9eadf;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+#finalScore{
+  font-size:35px;
+  font-weight:bold;
+
+  color:var(--green);
+}
+
+.scoreLabel{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.stats{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:10px;
+
+  margin:18px 0;
+}
+
+.stat{
+  padding:14px 8px;
+
+  border-radius:15px;
+
+  background:#f8faf9;
+
+  border:
+    1px solid var(--border);
+}
+
+.stat strong{
+  display:block;
+
+  font-size:24px;
+
+  color:var(--green);
+}
+
+
+/* =========================
+   التذييل
+========================= */
+
+.footer{
+  text-align:center;
+
+  color:#7a817e;
+
+  font-size:12px;
+
+  line-height:1.8;
+
+  margin-top:18px;
+}
+
+
+/* =========================
+   الحركات
+========================= */
+
+@keyframes pop{
+
+  from{
+    transform:scale(.97);
+    opacity:.4;
+  }
+
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+@keyframes shake{
+
+  0%,100%{
+    transform:translateX(0);
+  }
+
+  30%{
+    transform:translateX(4px);
+  }
+
+  60%{
+    transform:translateX(-4px);
+  }
+}
+
+
+/* =========================
+   الجوال
+========================= */
+
+@media(max-width:520px){
+
+  .container{
+    padding:10px 10px 30px;
+  }
+
+  .schoolHeader{
+    border-radius:20px;
+    padding:19px 14px 18px;
+  }
+
+  .schoolLogoBox{
+    width:82px;
+    height:82px;
+  }
+
+  .schoolName{
+    font-size:17px;
+  }
+
+  .schoolHeader h1{
+    font-size:24px;
+  }
+
+  .subtitle{
+    font-size:13px;
+  }
+
+  .card{
+    padding:16px;
+    border-radius:19px;
+  }
+
+  .caseText{
+    font-size:16px;
+  }
+
+  .option{
+    font-size:14px;
+  }
+
+  .actions{
+    flex-direction:column;
+  }
+
+  .progressInfo{
+    font-size:12px;
+  }
+}
+
 </style>
+
 </head>
+
 
 <body>
 
 <div class="container">
 
-<header>
-<h1>هل تجب فيها الزكاة؟</h1>
-<p class="subtitle">
-اقرأ كل موقف، ثم حدّد الحكم والسبب المؤثر فيه.
-إذا أخطأت فاستفد من التلميح وحاول مرة أخرى.
-</p>
+
+<!-- =========================
+     هوية المدرسة
+========================= -->
+
+<header class="schoolHeader">
+
+  <div class="schoolLogoBox">
+
+    <img
+      src="1000034439.png"
+      alt="شعار مدرسة كعب الأحبار المتوسطة"
+      class="schoolLogo"
+    >
+
+  </div>
+
+  <div class="schoolName">
+    مدرسة كعب الأحبار المتوسطة
+  </div>
+
+  <div class="identityLine"></div>
+
+  <div class="activityIcon">
+    ⚖️
+  </div>
+
+  <h1>
+    هل تجب فيها الزكاة؟
+  </h1>
+
+  <div class="subjectName">
+    الدراسات الإسلامية • الصف الثاني المتوسط
+  </div>
+
+  <p class="subtitle">
+
+    اقرأ كل موقف، ثم حدّد الحكم والسبب المؤثر فيه.
+
+    <br>
+
+    إذا أخطأت فاستفد من التلميح وحاول مرة أخرى.
+
+  </p>
+
+  <div class="teacherName">
+    إعداد الأستاذ: حمد بن عبدالله الفايز
+  </div>
+
 </header>
+
+
+<!-- =========================
+     النشاط
+========================= -->
 
 <div id="activity">
 
-<div class="progress">
-<div id="bar"></div>
+
+  <!-- شريط التقدم -->
+
+  <div class="progressBox">
+
+    <div class="progressInfo">
+
+      <span id="counter">
+        الموقف 1 من 6
+      </span>
+
+      <span id="mastery">
+        ✓ من أول محاولة: 0
+      </span>
+
+    </div>
+
+    <div class="progressTrack">
+
+      <div id="bar"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- بطاقة الموقف -->
+
+  <div class="card">
+
+    <div class="caseHead">
+
+      <div
+        class="topic"
+        id="topic">
+      </div>
+
+      <div
+        class="caseNumber"
+        id="caseNumber">
+        ١
+      </div>
+
+    </div>
+
+
+    <div
+      class="caseText"
+      id="caseText">
+    </div>
+
+
+    <div class="sectionTitle">
+
+      <span>①</span>
+
+      حدّد الحكم
+
+    </div>
+
+
+    <div
+      class="options"
+      id="judgments">
+    </div>
+
+
+    <div class="sectionTitle">
+
+      <span>②</span>
+
+      اختر السبب المؤثر في الحكم
+
+    </div>
+
+
+    <div
+      class="options"
+      id="reasons">
+    </div>
+
+
+    <!-- التغذية الراجعة -->
+
+    <div
+      id="feedback"
+      class="feedback">
+    </div>
+
+
+    <!-- التلميح -->
+
+    <div
+      id="hint"
+      class="hint">
+    </div>
+
+
+    <!-- الأزرار -->
+
+    <div class="actions">
+
+      <button
+        id="check"
+        class="mainBtn"
+        disabled>
+
+        تحقق من إجابتي
+
+      </button>
+
+
+      <button
+        id="next"
+        class="nextBtn"
+        style="display:none">
+
+        الموقف التالي ←
+
+      </button>
+
+    </div>
+
+  </div>
+
 </div>
 
-<div class="meta">
-<span id="counter"></span>
-<span id="firstScore"></span>
+
+<!-- =========================
+     شاشة النتيجة
+========================= -->
+
+<div
+  id="result"
+  class="card result">
+
+  <div class="trophy">
+    🏆
+  </div>
+
+  <h2>
+    أتممت النشاط
+  </h2>
+
+
+  <div class="scoreCircle">
+
+    <div id="finalScore">
+    </div>
+
+    <div class="scoreLabel">
+      من أول محاولة
+    </div>
+
+  </div>
+
+
+  <p id="finalMessage">
+  </p>
+
+
+  <div class="stats">
+
+
+    <div class="stat">
+
+      <strong id="firstStat">
+        0
+      </strong>
+
+      إتقان مباشر
+
+    </div>
+
+
+    <div class="stat">
+
+      <strong id="hintStat">
+        0
+      </strong>
+
+      بعد التلميح
+
+    </div>
+
+
+  </div>
+
+
+  <button
+    class="mainBtn"
+    onclick="restart()">
+
+    ↻ إعادة النشاط
+
+  </button>
+
 </div>
 
-<div class="card">
 
-<span class="topic" id="topic"></span>
+<div class="footer">
 
-<div class="case" id="caseText"></div>
+  مدرسة كعب الأحبار المتوسطة
 
-<div class="label">أولًا: ما الحكم؟</div>
-<div class="options" id="judgments"></div>
+  <br>
 
-<div class="label">ثانيًا: ما السبب المؤثر في الحكم؟</div>
-<div class="options" id="reasons"></div>
+  الدراسات الإسلامية • الصف الثاني المتوسط
 
-<div id="feedback" class="feedback"></div>
+  <br>
 
-<div class="actions">
-<button id="check" class="mainbtn" disabled>
-تحقق من القرار
-</button>
-
-<button id="next" class="nextbtn" style="display:none">
-الموقف التالي
-</button>
-</div>
+  إعداد الأستاذ: حمد بن عبدالله الفايز
 
 </div>
-</div>
 
-<div id="result" class="card result">
-<h2>اكتمل النشاط</h2>
-<div class="score" id="finalScore"></div>
-<p id="finalMessage"></p>
-<p id="helped"></p>
-<button class="mainbtn" onclick="restart()">
-إعادة النشاط
-</button>
-</div>
 
 </div>
+
 
 <script>
+
+/* =========================
+   بيانات المواقف
+========================= */
+
 const cases = [
 
 {
+
 topic:"بهيمة الأنعام",
-text:"يملك سعد 35 بقرة، أعدّها للاستفادة من ألبانها ونسلها، لكنه يعلفها بعلف اشتراه طوال العام.",
-judgment:"لا تجب الزكاة",
+
+text:
+"يملك سعد 35 بقرة، أعدّها للاستفادة من ألبانها ونسلها، لكنه يعلفها بعلف اشتراه طوال العام.",
+
+judgment:
+"لا تجب الزكاة",
+
 reasons:[
+
 "بلغت النصاب، لكن شرط السوم لم يتحقق.",
+
 "عدد البقر أقل من النصاب.",
+
 "لأن البقر لا زكاة فيها."
+
 ],
+
 correctReason:0,
-hint:"راجع شرط السوم: هل كانت البقر ترعى طوال العام أو أكثره؟",
-feedback:"لا تجب الزكاة؛ لأنها ليست سائمة، مع أن عددها بلغ نصاب البقر وهو ثلاثون."
+
+hint:
+"راجع شرط السوم: هل كانت البقر ترعى طوال العام أو أكثره؟",
+
+feedback:
+"لا تجب الزكاة؛ لأنها ليست سائمة، مع أن عددها بلغ نصاب البقر وهو ثلاثون."
+
 },
 
+
 {
+
 topic:"بهيمة الأنعام",
-text:"يملك خالد 7 من الإبل، ترعى في الصحراء أكثر العام، وقد أعدّها للاستفادة من ألبانها ونسلها.",
-judgment:"تجب الزكاة",
+
+text:
+"يملك خالد 7 من الإبل، ترعى في الصحراء أكثر العام، وقد أعدّها للاستفادة من ألبانها ونسلها.",
+
+judgment:
+"تجب الزكاة",
+
 reasons:[
+
 "بلغت نصاب الإبل، وهي سائمة ومعدّة للاستفادة من ألبانها أو نسلها.",
+
 "لأن كل ما يملكه الإنسان من الإبل تجب فيه الزكاة.",
+
 "لأنها ترعى بعض العام فقط."
+
 ],
+
 correctReason:0,
-hint:"افحص ثلاثة أمور: العدد، والسوم، والغرض من تربيتها.",
-feedback:"تجب الزكاة؛ فنصاب الإبل خمس، وقد بلغته، وهي سائمة ومعدّة للاستفادة من ألبانها أو نسلها."
+
+hint:
+"افحص ثلاثة أمور: العدد، والسوم، والغرض من تربيتها.",
+
+feedback:
+"تجب الزكاة؛ فنصاب الإبل خمس، وقد بلغته، وهي سائمة ومعدّة للاستفادة من ألبانها أو نسلها."
+
 },
 
+
 {
+
 topic:"الحبوب والثمار",
-text:"يملك مزارع وقت الحصاد 950 كجم من الأرز، وهو مما يُدَّخر ويُكال.",
-judgment:"تجب الزكاة",
+
+text:
+"يملك مزارع وقت الحصاد 950 كجم من الأرز، وهو مما يُدَّخر ويُكال.",
+
+judgment:
+"تجب الزكاة",
+
 reasons:[
-"تحققت شروط الادخار والكيل والملكية، وبلغ المقدار النصاب المذكور في الدرس.",
+
+"تحققت شروط الادخار والكيل والملكية، وبلغ المقدار النصاب.",
+
 "لأن كل ما يخرج من الأرض تجب فيه الزكاة.",
+
 "لأن الوزن وحده هو شرط وجوب الزكاة."
+
 ],
+
 correctReason:0,
-hint:"لا تنظر إلى الكمية وحدها؛ افحص الادخار والكيل والنصاب والملكية وقت الوجوب.",
-feedback:"تجب الزكاة؛ فقد تحقق الادخار والكيل والملكية، وبلغ المقدار النصاب المذكور في الدرس: 900 كجم تقريبًا."
+
+hint:
+"لا تنظر إلى الكمية وحدها؛ افحص الادخار والكيل والنصاب والملكية وقت الوجوب.",
+
+feedback:
+"تجب الزكاة؛ فقد تحققت الشروط وبلغ المقدار النصاب المذكور في الدرس، وهو نحو 900 كجم."
+
 },
 
+
 {
+
 topic:"الحبوب والثمار",
-text:"يملك مزارع وقت الحصاد كمية كبيرة من الخيار تزيد على 900 كجم.",
-judgment:"لا تجب الزكاة",
+
+text:
+"يملك مزارع وقت الحصاد كمية كبيرة من الخيار تزيد على 900 كجم.",
+
+judgment:
+"لا تجب الزكاة",
+
 reasons:[
-"الخيار لا يُدَّخر، وذكر الدرس أنه مما يباع بالوزن لا بالكيل.",
+
+"لأن الخيار لا يُدَّخر، فلا يتحقق فيه شرط الادخار.",
+
 "لأن الكمية أقل من النصاب.",
-"لأن الملكية وقت الحصاد تمنع الزكاة."
+
+"لأن ملكه وقت الحصاد يمنع وجوب الزكاة."
+
 ],
+
 correctReason:0,
-hint:"وجود كمية كبيرة لا يكفي. راجع شرطي الادخار والكيل.",
-feedback:"لا تجب الزكاة؛ فالخيار مما لا يُدَّخر، وذكر المقرر أنه مما يباع بالوزن لا بالكيل."
+
+hint:
+"لا تجعل كِبَر الكمية وحده يحسم الحكم. راجع شرط الادخار.",
+
+feedback:
+"لا تجب الزكاة في هذا الموقف؛ لأن الخيار لا يُدَّخر، فلا يتحقق فيه شرط الادخار."
+
 },
 
+
 {
+
 topic:"الأثمان",
-text:"يملك شخص 10,000 ريال، وهي أوراق نقدية بلغت النصاب. يريد معرفة حكمها ومقدار الواجب فيها.",
-judgment:"تجب الزكاة",
+
+text:
+"يملك شخص 10,000 ريال، وهي أوراق نقدية بلغت النصاب. يريد معرفة حكمها ومقدار الواجب فيها.",
+
+judgment:
+"تجب الزكاة",
+
 reasons:[
+
 "الأوراق النقدية من الأثمان، ومقدار الواجب فيها ربع العشر (2.5%).",
+
 "الواجب في الأوراق النقدية نصف العشر.",
+
 "نصاب الأوراق النقدية هو 10,000 ريال دائمًا."
+
 ],
+
 correctReason:0,
-hint:"راجع نوع المال أولًا، ثم مقدار الواجب في الأثمان.",
-feedback:"تجب الزكاة؛ فالأوراق النقدية من الأثمان، ومقدار الواجب فيها ربع العشر (2.5%)."
+
+hint:
+"راجع نوع المال أولًا، ثم مقدار الواجب في الأثمان.",
+
+feedback:
+"تجب الزكاة؛ فالأوراق النقدية من الأثمان، ومقدار الواجب فيها ربع العشر، أي 2.5%."
+
 },
 
+
 {
+
 topic:"عروض التجارة",
-text:"اشترى رجل سيارة ليؤجرها للناس، ولم يُعدّ السيارة للبيع. هل تجب الزكاة في عين السيارة؟",
-judgment:"لا تجب الزكاة في عين المال",
+
+text:
+"اشترى رجل سيارة ليؤجرها للناس، ولم يُعدّ السيارة للبيع. هل تجب الزكاة في عين السيارة؟",
+
+judgment:
+"لا تجب الزكاة في عين المال",
+
 reasons:[
+
 "العروض المعدّة للإيجار لا زكاة في عينها، وإنما الزكاة في أجرتها إذا بلغت نصابًا وحال عليها الحول.",
+
 "كل سيارة تحقق ربحًا تعد من عروض التجارة المعدّة للبيع.",
+
 "لا زكاة في السيارة ولا في أجرتها مطلقًا."
+
 ],
+
 correctReason:0,
-hint:"ميّز بين الشيء المعد للبيع والشيء المعد للإيجار.",
-feedback:"لا تجب الزكاة في عين السيارة المعدّة للإيجار؛ وإنما الزكاة في أجرتها إذا بلغت نصابًا وحال عليها الحول."
+
+hint:
+"ميّز بين المال المعد للبيع والمال المعد للإيجار.",
+
+feedback:
+"لا تجب الزكاة في عين السيارة المعدّة للإيجار؛ وإنما الزكاة في أجرتها إذا بلغت نصابًا وحال عليها الحول."
+
 }
 
 ];
 
+
+/* =========================
+   متغيرات النشاط
+========================= */
+
 let index=0;
+
 let firstCorrect=0;
+
 let afterHint=0;
+
 let attempts=0;
+
 let selectedJudgment=null;
+
 let selectedReason=null;
 
-const topic=document.getElementById("topic");
-const caseText=document.getElementById("caseText");
-const judgments=document.getElementById("judgments");
-const reasons=document.getElementById("reasons");
-const feedback=document.getElementById("feedback");
-const check=document.getElementById("check");
-const next=document.getElementById("next");
 
-function createOptions(container,items,type){
+/* العناصر */
+
+const topic=
+document.getElementById("topic");
+
+const caseText=
+document.getElementById("caseText");
+
+const judgments=
+document.getElementById("judgments");
+
+const reasons=
+document.getElementById("reasons");
+
+const feedback=
+document.getElementById("feedback");
+
+const hint=
+document.getElementById("hint");
+
+const check=
+document.getElementById("check");
+
+const next=
+document.getElementById("next");
+
+
+const arabicNumbers=[
+"١","٢","٣","٤","٥","٦"
+];
+
+
+/* =========================
+   إنشاء الخيارات
+========================= */
+
+function createOptions(
+container,
+items,
+type
+){
 
 container.innerHTML="";
 
-items.forEach((item,i)=>{
 
-const btn=document.createElement("button");
+items.forEach(
+(item,i)=>{
+
+
+const btn=
+document.createElement("button");
+
+
 btn.className="option";
+
+
 btn.textContent=item;
+
 
 btn.onclick=function(){
 
-[...container.children].forEach(x=>
-x.classList.remove("selected")
-);
+
+[...container.children]
+.forEach(x=>{
+
+x.classList.remove("selected");
+
+x.classList.remove("wrongOption");
+
+});
+
 
 btn.classList.add("selected");
 
+
 if(type==="judgment"){
+
 selectedJudgment=item;
+
 }else{
+
 selectedReason=i;
+
 }
 
+
+feedback.className=
+"feedback";
+
+
+hint.className=
+"hint";
+
+
 check.disabled=
+
 selectedJudgment===null ||
+
 selectedReason===null;
+
 
 };
 
+
 container.appendChild(btn);
+
 
 });
 
 }
 
+
+/* =========================
+   عرض الموقف
+========================= */
+
 function render(){
 
-const c=cases[index];
+
+const c=
+cases[index];
+
 
 attempts=0;
+
 selectedJudgment=null;
+
 selectedReason=null;
 
-topic.textContent=c.topic;
-caseText.textContent=c.text;
 
-document.getElementById("counter").textContent=
-"الموقف "+(index+1)+" من "+cases.length;
+topic.textContent=
+c.topic;
 
-document.getElementById("firstScore").textContent=
-"من المحاولة الأولى: "+firstCorrect;
 
-document.getElementById("bar").style.width=
-((index+1)/cases.length*100)+"%";
+caseText.textContent=
+c.text;
+
+
+document
+.getElementById("caseNumber")
+.textContent=
+
+arabicNumbers[index];
+
+
+document
+.getElementById("counter")
+.textContent=
+
+"الموقف "
++(index+1)
++" من "
++cases.length;
+
+
+document
+.getElementById("mastery")
+.textContent=
+
+"✓ من أول محاولة: "
++firstCorrect;
+
+
+document
+.getElementById("bar")
+.style.width=
+
+(((index+1)/cases.length)*100)
++"%";
+
 
 let judgmentOptions;
 
-if(c.judgment==="لا تجب الزكاة في عين المال"){
-judgmentOptions=[
-"تجب الزكاة",
+
+if(
+c.judgment===
 "لا تجب الزكاة في عين المال"
-];
-}else{
+){
+
 judgmentOptions=[
+
 "تجب الزكاة",
-"لا تجب الزكاة"
+
+"لا تجب الزكاة في عين المال"
+
 ];
+
+}else{
+
+judgmentOptions=[
+
+"تجب الزكاة",
+
+"لا تجب الزكاة"
+
+];
+
 }
+
 
 createOptions(
 judgments,
@@ -392,135 +1492,431 @@ judgmentOptions,
 "judgment"
 );
 
+
 createOptions(
 reasons,
 c.reasons,
 "reason"
 );
 
-feedback.className="feedback";
-feedback.textContent="";
 
-check.style.display="block";
+feedback.className=
+"feedback";
+
+
+feedback.innerHTML="";
+
+
+hint.className=
+"hint";
+
+
+hint.innerHTML="";
+
+
+check.style.display=
+"block";
+
+
 check.disabled=true;
 
-next.style.display="none";
+
+next.style.display=
+"none";
 
 }
+
+
+/* =========================
+   التحقق من الإجابة
+========================= */
 
 check.onclick=function(){
 
-const c=cases[index];
+
+const c=
+cases[index];
+
 
 attempts++;
 
+
+const correctJudgment=
+
+selectedJudgment===
+c.judgment;
+
+
+const correctReason=
+
+selectedReason===
+c.correctReason;
+
+
 const correct=
-selectedJudgment===c.judgment &&
-selectedReason===c.correctReason;
+
+correctJudgment &&
+correctReason;
+
+
+/* الإجابة الصحيحة */
 
 if(correct){
 
+
 if(attempts===1){
+
 firstCorrect++;
+
 }else{
+
 afterHint++;
+
 }
+
+
+/* تلوين الحكم الصحيح */
+
+[...judgments.children]
+.forEach(btn=>{
+
+
+if(
+btn.textContent===
+c.judgment
+){
+
+btn.classList.remove(
+"selected"
+);
+
+btn.classList.add(
+"correctOption"
+);
+
+}
+
+
+btn.disabled=true;
+
+
+});
+
+
+/* تلوين السبب الصحيح */
+
+[...reasons.children]
+.forEach((btn,i)=>{
+
+
+if(
+i===
+c.correctReason
+){
+
+btn.classList.remove(
+"selected"
+);
+
+btn.classList.add(
+"correctOption"
+);
+
+}
+
+
+btn.disabled=true;
+
+
+});
+
 
 feedback.className=
 "feedback correct";
 
-feedback.textContent=
-"صحيح: "+c.feedback;
 
-document.querySelectorAll(".option")
-.forEach(x=>x.disabled=true);
+feedback.innerHTML=
 
-check.style.display="none";
-next.style.display="block";
+'<div class="feedbackTitle">'
++
+'✓ أحسنت! إجابة صحيحة'
++
+'</div>'
++
+c.feedback;
 
-document.getElementById("firstScore")
+
+hint.className=
+"hint";
+
+
+check.style.display=
+"none";
+
+
+next.style.display=
+"block";
+
+
+document
+.getElementById("mastery")
 .textContent=
-"من المحاولة الأولى: "+firstCorrect;
+
+"✓ من أول محاولة: "
++firstCorrect;
+
+
+/* الإجابة الخاطئة */
 
 }else{
+
+
+/* تلوين الحكم الخاطئ */
+
+[...judgments.children]
+.forEach(btn=>{
+
+
+btn.classList.remove(
+"wrongOption"
+);
+
+
+if(
+btn.classList.contains("selected")
+&&
+!correctJudgment
+){
+
+btn.classList.add(
+"wrongOption"
+);
+
+}
+
+
+});
+
+
+/* تلوين السبب الخاطئ */
+
+[...reasons.children]
+.forEach((btn,i)=>{
+
+
+btn.classList.remove(
+"wrongOption"
+);
+
+
+if(
+btn.classList.contains("selected")
+&&
+!correctReason
+){
+
+btn.classList.add(
+"wrongOption"
+);
+
+}
+
+
+});
+
 
 feedback.className=
 "feedback wrong";
 
-feedback.textContent=
-"حاول مرة أخرى. تلميح: "+c.hint;
+
+feedback.innerHTML=
+
+'<div class="feedbackTitle">'
++
+'✕ ليست الإجابة الصحيحة بعد'
++
+'</div>'
++
+'راجع اختيارك ثم حاول مرة أخرى.';
+
+
+hint.className=
+"hint show";
+
+
+hint.innerHTML=
+
+"<strong>💡 تلميح:</strong> "
++
+c.hint;
+
 
 }
 
 };
+
+
+/* =========================
+   الموقف التالي
+========================= */
 
 next.onclick=function(){
 
+
 index++;
 
-if(index<cases.length){
+
+if(
+index<
+cases.length
+){
+
 render();
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+
 }else{
+
+
 finish();
+
+
 }
 
 };
 
+
+/* =========================
+   النتيجة النهائية
+========================= */
+
 function finish(){
 
-document.getElementById("activity")
-.style.display="none";
 
-document.getElementById("result")
-.style.display="block";
+document
+.getElementById("activity")
+.style.display=
+"none";
 
-document.getElementById("finalScore")
+
+document
+.getElementById("result")
+.style.display=
+"block";
+
+
+document
+.getElementById("finalScore")
 .textContent=
-firstCorrect+" / "+cases.length;
+
+firstCorrect
++" / "
++cases.length;
+
+
+document
+.getElementById("firstStat")
+.textContent=
+
+firstCorrect;
+
+
+document
+.getElementById("hintStat")
+.textContent=
+
+afterHint;
+
 
 let message;
 
-if(firstCorrect===6){
+
+if(
+firstCorrect===
+cases.length
+){
+
 message=
-"أتقنت تطبيق الأحكام والضوابط في المواقف المعروضة.";
+"ممتاز! أتقنت تطبيق الأحكام والضوابط على جميع المواقف من المحاولة الأولى.";
+
 }
-else if(firstCorrect>=4){
+
+else if(
+firstCorrect>=4
+){
+
 message=
-"فهمك جيد. راجع المواقف التي احتجت فيها إلى التلميح.";
+"أداء جيد جدًا. راجع المواقف التي احتجت فيها إلى تلميح لتثبيت الفهم.";
+
 }
+
 else{
+
 message=
-"تحتاج إلى مراجعة شروط وضوابط الأموال الزكوية ثم إعادة النشاط.";
+"أكملت النشاط. راجع شروط وضوابط الأموال الزكوية، ثم أعد المحاولة لرفع مستوى الإتقان.";
+
 }
 
-document.getElementById("finalMessage")
-.textContent=message;
 
-document.getElementById("helped")
+document
+.getElementById("finalMessage")
 .textContent=
-"مواقف أُتقنت بعد التلميح: "+afterHint;
+message;
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
 
 }
+
+
+/* =========================
+   إعادة النشاط
+========================= */
 
 function restart(){
 
+
 index=0;
+
 firstCorrect=0;
+
 afterHint=0;
 
-document.getElementById("result")
-.style.display="none";
 
-document.getElementById("activity")
-.style.display="block";
+document
+.getElementById("result")
+.style.display=
+"none";
+
+
+document
+.getElementById("activity")
+.style.display=
+"block";
+
 
 render();
 
+
 }
+
+
+/* بدء النشاط */
 
 render();
 
 </script>
 
+
 </body>
+
 </html>
