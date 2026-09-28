@@ -1,1922 +1,1423 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>هل تجب فيها الزكاة؟</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تطبيقات عملية في الزكاة</title>
 
 <style>
-
 :root{
-  --green:#16785f;
-  --green-dark:#105e4b;
-  --green-light:#eaf8f3;
-  --blue:#2563a9;
-  --blue-light:#edf5ff;
-  --gold:#c78b21;
-  --gold-light:#fff7df;
-  --red:#c73d45;
-  --red-light:#fff0f1;
-  --text:#263238;
-  --muted:#6b7280;
-  --border:#e5e7eb;
-  --background:#f4f7f6;
+  --g:#16785f;
+  --gs:#eaf8f3;
+  --b:#2563a9;
+  --bs:#edf5ff;
+  --r:#c73d45;
+  --rs:#fff0f1;
+  --y:#fff7df;
+  --t:#263238;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
   font-family:Tahoma,Arial,sans-serif;
-  color:var(--text);
-  min-height:100vh;
-
-  background:
-    radial-gradient(circle at top right,#e5f5ef 0,transparent 30%),
-    radial-gradient(circle at top left,#edf5ff 0,transparent 28%),
-    var(--background);
+  background:#f4f7f6;
+  color:var(--t);
 }
 
-.container{
-  max-width:780px;
+.wrap{
+  max-width:790px;
   margin:auto;
-  padding:15px 14px 40px;
+  padding:12px;
 }
 
-
-/* =========================
-   هوية المدرسة
-========================= */
-
-.schoolHeader{
-  position:relative;
-  overflow:hidden;
-
-  background:
-    linear-gradient(135deg,#105e4b,#18836a);
-
-  color:white;
+.hero{
+  background:linear-gradient(135deg,#105e4b,#18836a);
+  color:#fff;
   text-align:center;
-
-  border-radius:25px;
-  padding:23px 18px 20px;
-
-  box-shadow:
-    0 12px 30px rgba(22,90,70,.18);
-
-  margin-bottom:15px;
+  border-radius:24px;
+  padding:20px;
+  box-shadow:0 10px 28px #0001;
 }
 
-.schoolHeader::before{
-  content:"";
-  position:absolute;
-  width:170px;
-  height:170px;
-  border-radius:50%;
-  background:rgba(255,255,255,.05);
-  top:-90px;
-  right:-60px;
-}
-
-.schoolHeader::after{
-  content:"";
-  position:absolute;
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  background:rgba(255,255,255,.04);
-  bottom:-75px;
-  left:-45px;
-}
-
-.schoolLogoBox{
-  position:relative;
-  z-index:1;
-
-  width:94px;
-  height:94px;
-
-  margin:0 auto 9px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  background:white;
-  border-radius:20px;
-  padding:6px;
-
-  box-shadow:
-    0 6px 18px rgba(0,0,0,.16);
-}
-
-.schoolLogo{
-  width:100%;
-  height:100%;
+.logo{
+  width:88px;
+  height:88px;
   object-fit:contain;
-  border-radius:14px;
+  background:#fff;
+  padding:5px;
+  border-radius:18px;
 }
 
-.schoolName{
-  position:relative;
-  z-index:1;
-
-  font-size:19px;
+.school{
   font-weight:bold;
-  margin-bottom:15px;
+  font-size:18px;
+  margin:7px;
 }
 
-.identityLine{
-  position:relative;
-  z-index:1;
-
-  width:65px;
-  height:3px;
-  background:rgba(255,255,255,.45);
-
-  border-radius:10px;
-  margin:0 auto 15px;
+.hero h1{
+  margin:10px 0 6px;
 }
 
-.activityIcon{
-  position:relative;
-  z-index:1;
-
-  width:48px;
-  height:48px;
-
-  margin:0 auto 7px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  border-radius:15px;
-
-  background:rgba(255,255,255,.13);
-  border:1px solid rgba(255,255,255,.20);
-
-  font-size:25px;
+.hero p{
+  line-height:1.8;
+  font-size:14px;
 }
 
-.schoolHeader h1{
-  position:relative;
-  z-index:1;
-
-  margin:4px 0 7px;
-
-  font-size:29px;
-  line-height:1.4;
-}
-
-.subjectName{
-  position:relative;
-  z-index:1;
-
-  display:inline-block;
-
-  background:rgba(255,255,255,.13);
-  border:1px solid rgba(255,255,255,.20);
-
-  border-radius:20px;
-
-  padding:5px 13px;
-
+.teacher{
+  border-top:1px solid #ffffff44;
+  padding-top:10px;
+  font-weight:bold;
   font-size:13px;
-  font-weight:bold;
+}
 
+.card{
+  background:#fff;
+  border:1px solid #e5e9e7;
+  border-radius:20px;
+  padding:18px;
+  margin-top:13px;
+  box-shadow:0 8px 24px #0000000d;
+}
+
+.intro{text-align:center}
+
+.badge,.topic{
+  display:inline-block;
+  background:var(--bs);
+  color:var(--b);
+  padding:6px 12px;
+  border-radius:20px;
+  font-weight:bold;
+  font-size:13px;
+}
+
+.intro h2{font-size:26px}
+
+.progress{
+  height:9px;
+  background:#e8eeeb;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.bar{
+  height:100%;
+  background:linear-gradient(90deg,var(--g),#43b98f);
+}
+
+.meta{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  font-size:13px;
   margin-bottom:8px;
 }
 
-.subtitle{
-  position:relative;
-  z-index:1;
-
-  max-width:590px;
-  margin:8px auto 0;
-
-  color:rgba(255,255,255,.94);
-
-  font-size:14px;
-  line-height:1.9;
-}
-
-.teacherName{
-  position:relative;
-  z-index:1;
-
-  margin-top:15px;
-  padding-top:11px;
-
-  border-top:
-    1px solid rgba(255,255,255,.20);
-
-  font-size:13px;
-  font-weight:bold;
-}
-
-
-/* =========================
-   شريط التقدم
-========================= */
-
-.progressBox{
-  background:white;
-
-  border-radius:18px;
-
-  padding:14px 15px;
-
-  margin-bottom:14px;
-
-  box-shadow:
-    0 6px 20px rgba(0,0,0,.05);
-
-  border:1px solid #e9eceb;
-}
-
-.progressInfo{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  gap:10px;
-
-  font-size:14px;
-
-  margin-bottom:9px;
-}
-
-#mastery{
-  color:var(--green);
-  font-weight:bold;
-}
-
-.progressTrack{
-  height:10px;
-
-  background:#e9eeec;
-
-  border-radius:20px;
-
-  overflow:hidden;
-}
-
-#bar{
-  height:100%;
-  width:0;
-
-  background:
-    linear-gradient(90deg,var(--green),#43b98f);
-
-  border-radius:20px;
-
-  transition:.35s ease;
-}
-
-
-/* =========================
-   بطاقة الموقف
-========================= */
-
-.card{
-  background:white;
-
-  border:
-    1px solid #e7ebe9;
-
-  border-radius:23px;
-
-  padding:20px;
-
-  box-shadow:
-    0 10px 30px rgba(35,55,50,.07);
-}
-
-.caseHead{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  gap:10px;
-
-  margin-bottom:15px;
-}
-
-.caseNumber{
-  width:47px;
-  height:47px;
-
-  flex:0 0 47px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border-radius:15px;
-
-  background:var(--blue-light);
-  color:var(--blue);
-
-  font-weight:bold;
-  font-size:20px;
-}
-
-.topic{
-  display:inline-flex;
-  align-items:center;
-
-  background:var(--green-light);
-  color:var(--green);
-
-  border-radius:30px;
-
-  padding:7px 13px;
-
-  font-weight:bold;
-  font-size:14px;
-}
-
-.caseText{
+.case{
   background:#fafbfb;
-
-  border-right:
-    4px solid var(--gold);
-
-  border-radius:13px;
-
-  padding:15px;
-
-  font-size:18px;
+  border-right:4px solid #c78b21;
+  border-radius:12px;
+  padding:14px;
+  margin:14px 0;
+  font-size:17px;
   font-weight:bold;
-
   line-height:1.9;
-
-  margin-bottom:20px;
 }
 
-
-/* =========================
-   الأسئلة والخيارات
-========================= */
-
-.sectionTitle{
+.label{
   font-weight:bold;
-
-  margin:17px 0 9px;
-
-  font-size:15px;
+  margin:14px 0 8px;
 }
 
-.sectionTitle span{
-  color:var(--green);
-}
-
-.options{
+.opts{
   display:grid;
-  gap:9px;
+  gap:8px;
 }
 
-.option{
+.opt{
   width:100%;
-
-  min-height:52px;
-
-  padding:12px 15px;
-
-  border:
-    1.5px solid #dfe4e2;
-
-  border-radius:14px;
-
-  background:white;
-
-  color:var(--text);
-
-  font-family:inherit;
-  font-size:15px;
-  line-height:1.7;
-
   text-align:right;
-
+  padding:11px 13px;
+  border:1.5px solid #dfe4e2;
+  border-radius:13px;
+  background:#fff;
+  font:inherit;
+  line-height:1.6;
   cursor:pointer;
-
-  transition:
-    background .18s ease,
-    border .18s ease,
-    transform .18s ease;
 }
 
-.option:hover{
-  border-color:#a8c9bd;
-  background:#fbfefd;
+.opt.sel{
+  border:2px solid var(--b);
+  background:var(--bs);
 }
 
-.option.selected{
-  border:
-    2px solid var(--blue);
-
-  background:var(--blue-light);
-
-  color:#174c7e;
-
-  font-weight:bold;
-}
-
-
-/* الإجابة الصحيحة */
-
-.option.correctOption{
-  border:
-    2px solid #20a37a;
-
-  background:var(--green-light);
-
+.opt.ok{
+  border:2px solid #20a37a;
+  background:var(--gs);
   color:#105e4b;
-
   font-weight:bold;
 }
 
-
-/* الإجابة الخاطئة */
-
-.option.wrongOption{
-  border:
-    2px solid var(--red);
-
-  background:var(--red-light);
-
+.opt.bad{
+  border:2px solid var(--r);
+  background:var(--rs);
   color:#a92d35;
-
   font-weight:bold;
 }
 
-
-/* =========================
-   التغذية الراجعة
-========================= */
-
-.feedback{
+.msg,.hint{
   display:none;
-
-  margin-top:18px;
-
-  border-radius:16px;
-
-  padding:15px;
-
+  padding:12px;
+  border-radius:13px;
+  margin-top:12px;
   line-height:1.8;
 }
 
-.feedback.correct{
+.msg.ok{
   display:block;
-
-  background:var(--green-light);
-
-  border:
-    1px solid #a9ddca;
-
+  background:var(--gs);
   color:#155f4d;
-
-  animation:pop .25s ease;
 }
 
-.feedback.wrong{
+.msg.bad{
   display:block;
-
-  background:var(--red-light);
-
-  border:
-    1px solid #efb8bc;
-
+  background:var(--rs);
   color:#9f3037;
-
-  animation:shake .25s ease;
-}
-
-.feedbackTitle{
-  font-weight:bold;
-  font-size:17px;
-
-  margin-bottom:4px;
-}
-
-
-/* =========================
-   التلميح
-========================= */
-
-.hint{
-  display:none;
-
-  margin-top:10px;
-
-  background:var(--gold-light);
-
-  border:
-    1px solid #edd798;
-
-  border-radius:13px;
-
-  padding:11px 13px;
-
-  color:#735418;
 }
 
 .hint.show{
   display:block;
+  background:var(--y);
+  color:#735418;
 }
-
-
-/* =========================
-   الأزرار
-========================= */
 
 .actions{
   display:flex;
-
-  gap:10px;
-
-  margin-top:19px;
+  gap:9px;
+  margin-top:15px;
 }
 
-.mainBtn,
-.nextBtn{
+.btn{
   flex:1;
-
-  border-radius:14px;
-
-  padding:13px;
-
-  font-family:inherit;
-
-  font-size:16px;
+  border-radius:13px;
+  padding:12px;
+  font:inherit;
   font-weight:bold;
-
   cursor:pointer;
 }
 
-.mainBtn{
+.primary{
   border:0;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--green),
-      #20a37a
-    );
-
-  color:white;
-
-  box-shadow:
-    0 5px 15px rgba(22,120,95,.18);
+  background:var(--g);
+  color:#fff;
 }
 
-.mainBtn:disabled{
+.primary:disabled{
   opacity:.4;
   cursor:not-allowed;
 }
 
-.nextBtn{
-  border:
-    1.5px solid var(--green);
-
-  background:white;
-
-  color:var(--green);
+.secondary{
+  background:#fff;
+  color:var(--g);
+  border:1.5px solid var(--g);
 }
-
-
-/* =========================
-   النتيجة النهائية
-========================= */
 
 .result{
-  display:none;
   text-align:center;
+  display:none;
 }
 
-.trophy{
-  width:80px;
-  height:80px;
-
-  margin:0 auto 10px;
-
-  border-radius:25px;
-
-  background:var(--gold-light);
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  font-size:40px;
-}
-
-.result h2{
-  margin:8px 0;
-  font-size:27px;
-}
-
-.scoreCircle{
-  width:130px;
-  height:130px;
-
-  border-radius:50%;
-
-  margin:20px auto;
-
-  background:var(--green-light);
-
-  border:
-    8px solid #c9eadf;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
-
-#finalScore{
-  font-size:35px;
+.score{
+  font-size:38px;
+  color:var(--g);
   font-weight:bold;
-
-  color:var(--green);
-}
-
-.scoreLabel{
-  font-size:12px;
-  color:var(--muted);
 }
 
 .stats{
   display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:10px;
-
-  margin:18px 0;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
 }
 
 .stat{
-  padding:14px 8px;
-
-  border-radius:15px;
-
   background:#f8faf9;
-
-  border:
-    1px solid var(--border);
+  border-radius:13px;
+  padding:12px;
 }
 
 .stat strong{
   display:block;
-
-  font-size:24px;
-
-  color:var(--green);
+  font-size:22px;
+  color:var(--g);
 }
 
-
-/* =========================
-   التذييل
-========================= */
-
-.footer{
+footer{
   text-align:center;
-
-  color:#7a817e;
-
+  color:#777;
   font-size:12px;
-
   line-height:1.8;
-
-  margin-top:18px;
+  margin:16px;
 }
-
-
-/* =========================
-   الحركات
-========================= */
-
-@keyframes pop{
-
-  from{
-    transform:scale(.97);
-    opacity:.4;
-  }
-
-  to{
-    transform:scale(1);
-    opacity:1;
-  }
-}
-
-@keyframes shake{
-
-  0%,100%{
-    transform:translateX(0);
-  }
-
-  30%{
-    transform:translateX(4px);
-  }
-
-  60%{
-    transform:translateX(-4px);
-  }
-}
-
-
-/* =========================
-   الجوال
-========================= */
 
 @media(max-width:520px){
-
-  .container{
-    padding:10px 10px 30px;
-  }
-
-  .schoolHeader{
-    border-radius:20px;
-    padding:19px 14px 18px;
-  }
-
-  .schoolLogoBox{
-    width:82px;
-    height:82px;
-  }
-
-  .schoolName{
-    font-size:17px;
-  }
-
-  .schoolHeader h1{
-    font-size:24px;
-  }
-
-  .subtitle{
-    font-size:13px;
-  }
-
-  .card{
-    padding:16px;
-    border-radius:19px;
-  }
-
-  .caseText{
-    font-size:16px;
-  }
-
-  .option{
-    font-size:14px;
-  }
-
-  .actions{
-    flex-direction:column;
-  }
-
-  .progressInfo{
-    font-size:12px;
-  }
+  .hero h1{font-size:24px}
+  .case{font-size:15.5px}
+  .actions{flex-direction:column}
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-<div class="container">
+<div class="wrap">
 
+<header class="hero">
 
-<!-- =========================
-     هوية المدرسة
-========================= -->
+<img
+  class="logo"
+  src="1000034439.png"
+  alt="شعار مدرسة كعب الأحبار المتوسطة"
+>
 
-<header class="schoolHeader">
+<div class="school">
+مدرسة كعب الأحبار المتوسطة
+</div>
 
-  <div class="schoolLogoBox">
+<h1>تطبيقات عملية في الزكاة</h1>
 
-    <img
-      src="1000034439.png"
-      alt="شعار مدرسة كعب الأحبار المتوسطة"
-      class="schoolLogo"
-    >
+<div>
+الدراسات الإسلامية • الصف الثاني المتوسط
+</div>
 
-  </div>
+<p>
+اقرأ المواقف الآتية، ثم حدّد هل تجب الزكاة أم لا تجب،
+واختر السبب الصحيح.
+إذا أخطأت فاستفد من التلميح وحاول مرة أخرى.
+</p>
 
-  <div class="schoolName">
-    مدرسة كعب الأحبار المتوسطة
-  </div>
-
-  <div class="identityLine"></div>
-
-  <div class="activityIcon">
-    ⚖️
-  </div>
-
-  <h1>
-    هل تجب فيها الزكاة؟
-  </h1>
-
-  <div class="subjectName">
-    الدراسات الإسلامية • الصف الثاني المتوسط
-  </div>
-
-  <p class="subtitle">
-
-    اقرأ كل موقف، ثم حدّد الحكم والسبب المؤثر فيه.
-
-    <br>
-
-    إذا أخطأت فاستفد من التلميح وحاول مرة أخرى.
-
-  </p>
-
-  <div class="teacherName">
-    إعداد الأستاذ: حمد بن عبدالله الفايز
-  </div>
+<div class="teacher">
+إعداد الأستاذ: حمد بن عبدالله الفايز
+</div>
 
 </header>
 
 
-<!-- =========================
-     النشاط
-========================= -->
-
-<div id="activity">
+<div id="intro" class="card intro"></div>
 
 
-  <!-- شريط التقدم -->
+<div id="activity" style="display:none">
 
-  <div class="progressBox">
+<div class="card">
 
-    <div class="progressInfo">
+<div class="meta">
+<span id="secMeta"></span>
+<span id="mastery"></span>
+</div>
 
-      <span id="counter">
-        الموقف 1 من 6
-      </span>
-
-      <span id="mastery">
-        ✓ من أول محاولة: 0
-      </span>
-
-    </div>
-
-    <div class="progressTrack">
-
-      <div id="bar"></div>
-
-    </div>
-
-  </div>
-
-
-  <!-- بطاقة الموقف -->
-
-  <div class="card">
-
-    <div class="caseHead">
-
-      <div
-        class="topic"
-        id="topic">
-      </div>
-
-      <div
-        class="caseNumber"
-        id="caseNumber">
-        ١
-      </div>
-
-    </div>
-
-
-    <div
-      class="caseText"
-      id="caseText">
-    </div>
-
-
-    <div class="sectionTitle">
-
-      <span>①</span>
-
-      حدّد الحكم
-
-    </div>
-
-
-    <div
-      class="options"
-      id="judgments">
-    </div>
-
-
-    <div class="sectionTitle">
-
-      <span>②</span>
-
-      اختر السبب المؤثر في الحكم
-
-    </div>
-
-
-    <div
-      class="options"
-      id="reasons">
-    </div>
-
-
-    <!-- التغذية الراجعة -->
-
-    <div
-      id="feedback"
-      class="feedback">
-    </div>
-
-
-    <!-- التلميح -->
-
-    <div
-      id="hint"
-      class="hint">
-    </div>
-
-
-    <!-- الأزرار -->
-
-    <div class="actions">
-
-      <button
-        id="check"
-        class="mainBtn"
-        disabled>
-
-        تحقق من إجابتي
-
-      </button>
-
-
-      <button
-        id="next"
-        class="nextBtn"
-        style="display:none">
-
-        الموقف التالي ←
-
-      </button>
-
-    </div>
-
-  </div>
+<div class="progress">
+<div id="bar" class="bar"></div>
+</div>
 
 </div>
 
 
-<!-- =========================
-     شاشة النتيجة
-========================= -->
+<div class="card">
 
-<div
-  id="result"
-  class="card result">
+<div class="meta">
+<span id="topic" class="topic"></span>
+<span id="caseMeta"></span>
+</div>
 
-  <div class="trophy">
-    🏆
-  </div>
+<div id="caseText" class="case"></div>
 
-  <h2>
-    أتممت النشاط
-  </h2>
+<div id="qLabel" class="label">
+① حدّد الحكم
+</div>
 
+<div id="judgments" class="opts"></div>
 
-  <div class="scoreCircle">
+<div class="label">
+② اختر السبب المؤثر في الحكم
+</div>
 
-    <div id="finalScore">
-    </div>
+<div id="reasons" class="opts"></div>
 
-    <div class="scoreLabel">
-      من أول محاولة
-    </div>
+<div id="msg" class="msg"></div>
 
-  </div>
+<div id="hint" class="hint"></div>
 
+<div class="actions">
 
-  <p id="finalMessage">
-  </p>
+<button
+  id="check"
+  class="btn primary"
+  disabled
+>
+تحقق من إجابتي
+</button>
 
+<button
+  id="next"
+  class="btn secondary"
+  style="display:none"
+>
+الموقف التالي ←
+</button>
 
-  <div class="stats">
+</div>
 
-
-    <div class="stat">
-
-      <strong id="firstStat">
-        0
-      </strong>
-
-      إتقان مباشر
-
-    </div>
-
-
-    <div class="stat">
-
-      <strong id="hintStat">
-        0
-      </strong>
-
-      بعد التلميح
-
-    </div>
+</div>
+</div>
 
 
-  </div>
+<div id="result" class="card result">
 
+<div style="font-size:44px">🏆</div>
 
-  <button
-    class="mainBtn"
-    onclick="restart()">
+<h2>أتممت تطبيقات الزكاة</h2>
 
-    ↻ إعادة النشاط
+<div id="score" class="score"></div>
 
-  </button>
+<p id="finalMsg"></p>
+
+<div class="stats">
+
+<div class="stat">
+<strong id="first"></strong>
+إتقان مباشر
+</div>
+
+<div class="stat">
+<strong id="assisted"></strong>
+بعد التلميح
+</div>
+
+</div>
+
+<button
+  class="btn primary"
+  onclick="restart()"
+>
+↻ إعادة النشاط
+</button>
 
 </div>
 
 
-<div class="footer">
-
-  مدرسة كعب الأحبار المتوسطة
-
-  <br>
-
-  الدراسات الإسلامية • الصف الثاني المتوسط
-
-  <br>
-
-  إعداد الأستاذ: حمد بن عبدالله الفايز
-
-</div>
-
+<footer>
+مدرسة كعب الأحبار المتوسطة
+<br>
+إعداد الأستاذ: حمد بن عبدالله الفايز
+</footer>
 
 </div>
 
 
 <script>
 
-/* =========================
-   بيانات المواقف
-========================= */
+/*
+====================================================
+بنك المواقف
 
-const cases = [
+مستقبلًا:
+- لإضافة موقف: أضف موقفًا داخل القسم المطلوب.
+- لحذف موقف: احذف الموقف فقط.
+- لا تحتاج إلى تغيير أعداد المواقف.
+- البرنامج يحسبها تلقائيًا.
+====================================================
+*/
+
+function C(
+  id,
+  text,
+  judgment,
+  reasons,
+  correctReason,
+  hint,
+  feedback
+){
+  return{
+    id,
+    text,
+    judgment,
+    reasons,
+    correctReason,
+    hint,
+    feedback
+  };
+}
+
+
+const sections=[
+
+
+/* =====================================
+   القسم الأول: زكاة بهيمة الأنعام
+===================================== */
 
 {
+title:"زكاة بهيمة الأنعام",
 
-topic:"بهيمة الأنعام",
+cases:[
 
-text:
-"يملك سعد 35 بقرة، أعدّها للاستفادة من ألبانها ونسلها، لكنه يعلفها بعلف اشتراه طوال العام.",
+C(
+"liv-1",
 
-judgment:
+"يملك عبدالله خمسًا وأربعين من الغنم، ترعى العشب طوال العام، وقد اتخذها للاستفادة من ألبانها ونسلها.",
+
+"تجب الزكاة",
+
+[
+"بلغت الغنم النصاب، وهي سائمة ومعدّة للاستفادة من ألبانها ونسلها.",
+"لأن كل غنم يملكها المسلم تجب فيها الزكاة.",
+"لأن عدد الغنم أكثر من ثلاثين."
+],
+
+0,
+
+"تحقق من النوع والنصاب والسوم والغرض من تربيتها.",
+
+"تجب الزكاة؛ لأن الغنم بلغت النصاب، وهي سائمة ومعدّة للاستفادة من ألبانها ونسلها."
+),
+
+
+C(
+"liv-2",
+
+"يملك سعد خمسًا وثلاثين بقرة، ترعى العشب طوال العام، وقد اتخذها للعمل في مزرعته.",
+
 "لا تجب الزكاة",
 
-reasons:[
-
-"بلغت النصاب، لكن شرط السوم لم يتحقق.",
-
-"عدد البقر أقل من النصاب.",
-
-"لأن البقر لا زكاة فيها."
-
+[
+"بلغت النصاب وهي سائمة، لكنها معدّة للعمل في المزرعة.",
+"لأن خمسًا وثلاثين بقرة لم تبلغ النصاب.",
+"لأن البقر لا تدخل في بهيمة الأنعام."
 ],
 
-correctReason:0,
+0,
 
-hint:
-"راجع شرط السوم: هل كانت البقر ترعى طوال العام أو أكثره؟",
+"بلغ العدد النصاب؛ فابحث عن الشرط الآخر الذي لم يتحقق.",
 
-feedback:
-"لا تجب الزكاة؛ لأنها ليست سائمة، مع أن عددها بلغ نصاب البقر وهو ثلاثون."
+"لا تجب الزكاة؛ لأنها اتُّخذت للعمل."
+),
 
+
+C(
+"liv-3",
+
+"يملك خالد خمسين من الغنم، وقد اتخذها للاستفادة من ألبانها ونسلها، لكنه يعلفها معظم العام.",
+
+"لا تجب الزكاة",
+
+[
+"بلغت النصاب وأعدّت للدر والنسل، لكن شرط السوم لم يتحقق.",
+"لأن خمسين من الغنم أقل من النصاب.",
+"لأن الاستفادة من الألبان تمنع الزكاة."
+],
+
+0,
+
+"هل كانت ترعى طوال العام أو أكثره؟",
+
+"لا تجب الزكاة؛ لأن شرط السوم لم يتحقق."
+),
+
+
+C(
+"liv-4",
+
+"يملك محمد تسعًا وثلاثين من الغنم، ترعى العشب طوال العام، وقد اتخذها للاستفادة من ألبانها ونسلها.",
+
+"لا تجب الزكاة",
+
+[
+"لم تبلغ الغنم النصاب؛ فنصاب الغنم أربعون.",
+"لأنها ترعى طوال العام.",
+"لأن الغنم لا تجب فيها الزكاة إلا إذا زادت على خمسين."
+],
+
+0,
+
+"قارن العدد بنصاب الغنم.",
+
+"لا تجب الزكاة؛ لأن الغنم لم تبلغ النصاب."
+),
+
+
+C(
+"liv-5",
+
+"يملك فهد خمسين حصانًا، ترعى العشب طوال العام، وقد اتخذها للاستفادة من نسلها.",
+
+"لا تجب الزكاة",
+
+[
+"الخيل ليست من بهيمة الأنعام المذكورة في الدرس: الإبل والبقر والغنم.",
+"لأن عدد الخيل أقل من النصاب.",
+"لأن الاستفادة من النسل تمنع الزكاة في جميع الحيوانات."
+],
+
+0,
+
+"هل الحصان من الأنواع الثلاثة المذكورة في بهيمة الأنعام؟",
+
+"لا تجب فيها زكاة بهيمة الأنعام؛ لأن الخيل ليست من الإبل أو البقر أو الغنم."
+)
+
+]
 },
 
 
-{
-
-topic:"بهيمة الأنعام",
-
-text:
-"يملك خالد 7 من الإبل، ترعى في الصحراء أكثر العام، وقد أعدّها للاستفادة من ألبانها ونسلها.",
-
-judgment:
-"تجب الزكاة",
-
-reasons:[
-
-"بلغت نصاب الإبل، وهي سائمة ومعدّة للاستفادة من ألبانها أو نسلها.",
-
-"لأن كل ما يملكه الإنسان من الإبل تجب فيه الزكاة.",
-
-"لأنها ترعى بعض العام فقط."
-
-],
-
-correctReason:0,
-
-hint:
-"افحص ثلاثة أمور: العدد، والسوم، والغرض من تربيتها.",
-
-feedback:
-"تجب الزكاة؛ فنصاب الإبل خمس، وقد بلغته، وهي سائمة ومعدّة للاستفادة من ألبانها أو نسلها."
-
-},
-
+/* =====================================
+   القسم الثاني: زكاة الحبوب والثمار
+===================================== */
 
 {
+title:"زكاة الحبوب والثمار",
 
-topic:"الحبوب والثمار",
+cases:[
 
-text:
-"يملك مزارع وقت الحصاد 950 كجم من الأرز، وهو مما يُدَّخر ويُكال.",
+C(
+"crop-1",
 
-judgment:
+"حصد مزارع من أرضه ألف كيلوجرام من الأرز.",
+
 "تجب الزكاة",
 
-reasons:[
-
-"تحققت شروط الادخار والكيل والملكية، وبلغ المقدار النصاب.",
-
+[
+"الأرز مما يُدَّخر ويُكال، وقد بلغ المقدار النصاب.",
 "لأن كل ما يخرج من الأرض تجب فيه الزكاة.",
-
-"لأن الوزن وحده هو شرط وجوب الزكاة."
-
+"لأن ألف كيلوجرام هو نصاب جميع المحاصيل."
 ],
 
-correctReason:0,
+0,
 
-hint:
-"لا تنظر إلى الكمية وحدها؛ افحص الادخار والكيل والنصاب والملكية وقت الوجوب.",
+"راجع نوع المحصول ثم قارِن الكمية بالنصاب.",
 
-feedback:
-"تجب الزكاة؛ فقد تحققت الشروط وبلغ المقدار النصاب المذكور في الدرس، وهو نحو 900 كجم."
-
-},
+"تجب الزكاة؛ فالأرز يُدَّخر ويُكال وقد بلغ النصاب."
+),
 
 
-{
+C(
+"crop-2",
 
-topic:"الحبوب والثمار",
+"حصد مزارع من أرضه ألف كيلوجرام من البرتقال.",
 
-text:
-"يملك مزارع وقت الحصاد كمية كبيرة من الخيار تزيد على 900 كجم.",
-
-judgment:
 "لا تجب الزكاة",
 
-reasons:[
-
-"لأن الخيار لا يُدَّخر، فلا يتحقق فيه شرط الادخار.",
-
-"لأن الكمية أقل من النصاب.",
-
-"لأن ملكه وقت الحصاد يمنع وجوب الزكاة."
-
+[
+"البرتقال لا يتحقق فيه شرط الادخار.",
+"لأن ألف كيلوجرام أقل من النصاب.",
+"لأن الثمار لا تجب فيها الزكاة مطلقًا."
 ],
 
-correctReason:0,
+0,
 
-hint:
-"لا تجعل كِبَر الكمية وحده يحسم الحكم. راجع شرط الادخار.",
+"بلوغ كمية كبيرة لا يكفي؛ راجع شرط الادخار.",
 
-feedback:
-"لا تجب الزكاة في هذا الموقف؛ لأن الخيار لا يُدَّخر، فلا يتحقق فيه شرط الادخار."
+"لا تجب الزكاة؛ لأن شرط الادخار لا يتحقق في البرتقال."
+),
 
+
+C(
+"crop-3",
+
+"حصد مزارع من أرضه كمية كبيرة من الرمان تزيد على النصاب.",
+
+"لا تجب الزكاة",
+
+[
+"الرمان مما يباع بالعد أو الوزن، فلا يتحقق فيه شرط الكيل.",
+"لأن الرمان لا يعد من الخارج من الأرض.",
+"لأن بلوغ النصاب يمنع وجوب الزكاة."
+],
+
+0,
+
+"المقدار تجاوز النصاب؛ ابحث عن شرط آخر متعلق بالكيل.",
+
+"لا تجب الزكاة؛ لأن شرط الكيل لا يتحقق فيه وفق الدرس."
+),
+
+
+C(
+"crop-4",
+
+"حصد مزارع من أرضه ثمانمائة كيلوجرام من الأرز.",
+
+"لا تجب الزكاة",
+
+[
+"الأرز من الحبوب الزكوية، لكن المقدار لم يبلغ النصاب.",
+"لأن الأرز لا يُدَّخر.",
+"لأن الأرز لا يُكال."
+],
+
+0,
+
+"نوع المحصول مناسب؛ ركّز على المقدار.",
+
+"لا تجب الزكاة؛ لأن 800 كجم أقل من النصاب المذكور في الدرس."
+),
+
+
+C(
+"crop-5",
+
+"اشترى رجل ألف كيلوجرام من القمح بعد حصاده، ولم يكن يملكه وقت وجوب الزكاة.",
+
+"لا تجب الزكاة",
+
+[
+"لم يكن مالكًا للحبوب وقت وجوب الزكاة.",
+"لأن القمح لا تجب فيه الزكاة.",
+"لأن ألف كيلوجرام لم تبلغ النصاب."
+],
+
+0,
+
+"متى أصبح الرجل مالكًا للقمح؟",
+
+"لا تجب عليه زكاة الزروع فيه؛ لأنه لم يكن يملكه وقت وجوب الزكاة."
+)
+
+]
 },
 
 
+/* =====================================
+   القسم الثالث: زكاة الأثمان
+===================================== */
+
 {
+title:"زكاة الأثمان",
 
-topic:"الأثمان",
+cases:[
 
-text:
-"يملك شخص 10,000 ريال، وهي أوراق نقدية بلغت النصاب. يريد معرفة حكمها ومقدار الواجب فيها.",
+C(
+"m1",
+"يملك أحمد مائة جرام من الذهب، وقد بلغ النصاب ومضى على امتلاكه له حول كامل.",
+"تجب الزكاة",
+[
+"بلغ الذهب نصابه ومضى على امتلاكه حول كامل.",
+"لأن نصاب الذهب مائة جرام بالضبط.",
+"لأن مرور الحول وحده يكفي."
+],
+0,
+"افحص النصاب والحول معًا.",
+"تجب الزكاة؛ فقد تحقق النصاب والحول."
+),
 
-judgment:
+
+C(
+"m2",
+"يملك خالد مائة جرام من الذهب، وقد بلغ النصاب، ولم يمض على امتلاكه له إلا ستة أشهر.",
+"لا تجب الزكاة",
+[
+"بلغ النصاب، لكن لم يمض على امتلاكه حول كامل.",
+"لأن مائة جرام أقل من النصاب.",
+"لأن الذهب لا تجب فيه الزكاة."
+],
+0,
+"النصاب متحقق؛ ركّز على المدة.",
+"لا تجب الزكاة في هذا الموقف؛ لأن الحول لم يكتمل."
+),
+
+
+C(
+"m3",
+"يملك محمد ثمانين جرامًا من الذهب، ومضى على امتلاكه له حول كامل.",
+"لا تجب الزكاة",
+[
+"لم يبلغ الذهب النصاب؛ فنصابه 85 جرامًا.",
+"لأن مرور الحول يمنع الزكاة.",
+"لأن نصاب الذهب 595 جرامًا."
+],
+0,
+"قارن الوزن بنصاب الذهب.",
+"لا تجب الزكاة؛ لأن 80 جرامًا أقل من نصاب الذهب."
+),
+
+
+C(
+"m4",
+"يملك عبدالله ستمائة جرام من الفضة، وقد بلغت النصاب ومضى على امتلاكه لها حول كامل.",
+"تجب الزكاة",
+[
+"بلغت الفضة نصابها ومضى عليها حول كامل.",
+"لأن نصاب الفضة 600 جرام بالضبط.",
+"لأن كل كمية من الفضة تجب فيها الزكاة."
+],
+0,
+"قارن 600 جرام بنصاب الفضة ثم تحقق من الحول.",
+"تجب الزكاة؛ لتحقق النصاب والحول."
+),
+
+
+C(
+"m5",
+"يملك سعد ستمائة جرام من الفضة، وقد بلغت النصاب، ولم يمض على امتلاكه لها إلا ستة أشهر.",
+"لا تجب الزكاة",
+[
+"بلغت النصاب، لكن لم يمض عليها حول كامل.",
+"لأن 600 جرام أقل من النصاب.",
+"لأن الفضة لا تجب فيها الزكاة."
+],
+0,
+"النصاب متحقق؛ راجع المدة.",
+"لا تجب الزكاة في هذا الموقف؛ لأن الحول لم يكتمل."
+),
+
+
+C(
+"m6",
+"يملك فهد خمسمائة جرام من الفضة، ومضى على امتلاكه لها حول كامل.",
+"لا تجب الزكاة",
+[
+"لم تبلغ الفضة النصاب؛ فنصابها 595 جرامًا.",
+"لأن مرور الحول يمنع الزكاة.",
+"لأن نصاب الفضة 85 جرامًا."
+],
+0,
+"قارن الكمية بنصاب الفضة.",
+"لا تجب الزكاة؛ لأن 500 جرام أقل من نصاب الفضة."
+),
+
+
+C(
+"m7",
+"يملك ناصر مبلغًا من المال بلغ النصاب، ومضى على امتلاكه له حول كامل.",
+"تجب الزكاة",
+[
+"بلغ المال النصاب ومضى عليه حول كامل.",
+"لأن كل مبلغ نقدي تجب فيه الزكاة.",
+"لأن الأوراق النقدية لا يشترط فيها نصاب."
+],
+0,
+"الموقف يصرح بتحقق النصاب والحول.",
+"تجب الزكاة؛ لتحقق النصاب والحول."
+),
+
+
+C(
+"m8",
+"يملك صالح مبلغًا من المال بلغ النصاب، ولم يمض على امتلاكه له إلا ستة أشهر.",
+"لا تجب الزكاة",
+[
+"بلغ المال النصاب، لكن لم يمض عليه حول كامل.",
+"لأن الأوراق النقدية ليست من الأثمان.",
+"لأن بلوغ النصاب يمنع الزكاة."
+],
+0,
+"النصاب متحقق؛ راجع المدة.",
+"لا تجب الزكاة في هذا الموقف؛ لأن الحول لم يكتمل."
+),
+
+
+C(
+"m9",
+"يملك بدر مبلغًا من المال لم يبلغ النصاب، ومضى على امتلاكه له حول كامل.",
+"لا تجب الزكاة",
+[
+"لم يبلغ المال النصاب، ولو مضى عليه حول كامل.",
+"لأن مرور الحول يلغي شرط النصاب.",
+"لأن الأوراق النقدية لا تجب فيها الزكاة."
+],
+0,
+"هل تحقق النصاب؟",
+"لا تجب الزكاة؛ لأن المال لم يبلغ النصاب."
+)
+
+]
+},
+
+
+/* =====================================
+   القسم الرابع: زكاة عروض التجارة
+===================================== */
+
+{
+title:"زكاة عروض التجارة",
+
+cases:[
+
+C(
+"t1",
+
+"يملك عبدالله معرضًا للسيارات، وفيه سيارات أعدها للبيع والربح، وقد بلغت قيمتها النصاب، ومضى عليها حول كامل.",
+
 "تجب الزكاة",
 
-reasons:[
-
-"الأوراق النقدية من الأثمان، ومقدار الواجب فيها ربع العشر (2.5%).",
-
-"الواجب في الأوراق النقدية نصف العشر.",
-
-"نصاب الأوراق النقدية هو 10,000 ريال دائمًا."
-
+[
+"السيارات معدّة للبيع والربح، وقد بلغت قيمتها النصاب ومضى عليها حول كامل.",
+"لأن كل سيارة تعد من عروض التجارة.",
+"لأن استعمال السيارات للنقل سبب وجوب الزكاة."
 ],
 
-correctReason:0,
+0,
 
-hint:
-"راجع نوع المال أولًا، ثم مقدار الواجب في الأثمان.",
+"تحقق من نية التجارة والنصاب والحول.",
 
-feedback:
-"تجب الزكاة؛ فالأوراق النقدية من الأثمان، ومقدار الواجب فيها ربع العشر، أي 2.5%."
+"تجب الزكاة؛ لأنها عروض تجارة وقد تحقق النصاب والحول."
+),
 
-},
+
+C(
+"t2",
+
+"يملك خالد متجرًا فيه بضائع أعدها للبيع والربح، وقد بلغت قيمتها النصاب، ولم يمض عليها حول كامل.",
+
+"لا تجب الزكاة",
+
+[
+"البضائع معدّة للتجارة وبلغت النصاب، لكن لم يمض عليها حول كامل.",
+"لأن البضائع المعدّة للبيع ليست من عروض التجارة.",
+"لأن بلوغ النصاب يمنع الزكاة."
+],
+
+0,
+
+"نية التجارة والنصاب متحققان؛ راجع الحول.",
+
+"لا تجب الزكاة في هذا الموقف؛ لأن الحول لم يكتمل."
+),
+
+
+C(
+"t3",
+
+"يملك محمد متجرًا فيه بضائع أعدها للبيع والربح، ومضى عليها حول كامل، ولكن قيمتها لم تبلغ النصاب.",
+
+"لا تجب الزكاة",
+
+[
+"البضائع معدّة للتجارة ومضى الحول، لكن قيمتها لم تبلغ النصاب.",
+"لأن عروض التجارة لا تجب فيها الزكاة.",
+"لأن مرور الحول يمنع الزكاة."
+],
+
+0,
+
+"بقي شرط متعلق بالقيمة.",
+
+"لا تجب الزكاة؛ لأن قيمة عروض التجارة لم تبلغ النصاب."
+),
+
+
+C(
+"t4",
+
+"اشترى سعد سيارة لاستعماله الشخصي، وبلغت قيمتها النصاب، ومضى على امتلاكه لها حول كامل.",
+
+"لا تجب الزكاة",
+
+[
+"السيارة للاستعمال الشخصي وليست معدّة للبيع والربح.",
+"لأن قيمة السيارة أقل من النصاب.",
+"لأن مرور الحول يمنع الزكاة."
+],
+
+0,
+
+"لماذا اشترى السيارة؟",
+
+"لا تجب فيها زكاة عروض التجارة؛ لأنها للاستعمال الشخصي."
+),
 
 
 {
-
-topic:"عروض التجارة",
+id:"t5",
 
 text:
-"اشترى رجل سيارة ليؤجرها للناس، ولم يُعدّ السيارة للبيع. هل تجب الزكاة في عين السيارة؟",
+"يملك صاحب متجر بضائع أعدها للبيع، كما يملك سيارة يستخدمها لنقل بضائع المتجر، وقد بلغت قيمة البضائع النصاب، ومضى عليها حول كامل.",
 
-judgment:
-"لا تجب الزكاة في عين المال",
+judgment:"البضائع فقط",
+
+question:
+"ما المال الذي تجب فيه الزكاة في هذا الموقف؟",
+
+judgmentOptions:[
+"البضائع فقط",
+"السيارة فقط",
+"البضائع والسيارة",
+"لا شيء منهما"
+],
 
 reasons:[
-
-"العروض المعدّة للإيجار لا زكاة في عينها، وإنما الزكاة في أجرتها إذا بلغت نصابًا وحال عليها الحول.",
-
-"كل سيارة تحقق ربحًا تعد من عروض التجارة المعدّة للبيع.",
-
-"لا زكاة في السيارة ولا في أجرتها مطلقًا."
-
+"البضائع معدّة للبيع فتدخل في عروض التجارة، أما السيارة فلخدمة المتجر وليست معدّة للبيع.",
+"السيارة أغلى من بعض البضائع فتجب فيها وحدها.",
+"كل ما يملكه صاحب المتجر يعد من عروض التجارة."
 ],
 
 correctReason:0,
 
 hint:
-"ميّز بين المال المعد للبيع والمال المعد للإيجار.",
+"فرّق بين المال المعد للبيع والمال المستخدم لخدمة المتجر.",
 
 feedback:
-"لا تجب الزكاة في عين السيارة المعدّة للإيجار؛ وإنما الزكاة في أجرتها إذا بلغت نصابًا وحال عليها الحول."
+"تجب الزكاة في البضائع المعدّة للبيع، ولا تدخل السيارة المستخدمة لنقل البضائع في عروض التجارة."
+}
 
+]
 }
 
 ];
 
 
-/* =========================
-   متغيرات النشاط
-========================= */
+/* =====================================
+   نظام تشغيل النشاط
+   لا تحتاج إلى تعديل هذا الجزء
+===================================== */
 
-let index=0;
+let sectionIndex=0;
+let caseIndex=0;
 
+let tries=0;
 let firstCorrect=0;
-
 let afterHint=0;
 
-let attempts=0;
-
 let selectedJudgment=null;
-
 let selectedReason=null;
 
 
-/* العناصر */
-
-const topic=
-document.getElementById("topic");
-
-const caseText=
-document.getElementById("caseText");
-
-const judgments=
-document.getElementById("judgments");
-
-const reasons=
-document.getElementById("reasons");
-
-const feedback=
-document.getElementById("feedback");
-
-const hint=
-document.getElementById("hint");
-
-const check=
-document.getElementById("check");
-
-const next=
-document.getElementById("next");
+const $=id=>document.getElementById(id);
 
 
-const arabicNumbers=[
-"١","٢","٣","٤","٥","٦"
-];
+function totalCases(){
+
+  return sections.reduce(
+    (total,section)=>total+section.cases.length,
+    0
+  );
+
+}
 
 
-/* =========================
-   إنشاء الخيارات
-========================= */
+function completedBefore(){
+
+  return sections
+    .slice(0,sectionIndex)
+    .reduce(
+      (total,section)=>total+section.cases.length,
+      0
+    ) + caseIndex;
+
+}
+
+
+function showIntro(){
+
+  $("activity").style.display="none";
+  $("result").style.display="none";
+  $("intro").style.display="block";
+
+  const section=sections[sectionIndex];
+
+  $("intro").innerHTML=`
+
+    <span class="badge">
+      القسم ${sectionIndex+1} من ${sections.length}
+    </span>
+
+    <h2>${section.title}</h2>
+
+    <p>
+      أمامك ${section.cases.length}
+      مواقف تطبيقية في هذا القسم.
+    </p>
+
+    <button
+      class="btn primary"
+      onclick="startSection()"
+    >
+      ابدأ المواقف ←
+    </button>
+
+  `;
+
+}
+
+
+function startSection(){
+
+  $("intro").style.display="none";
+  $("activity").style.display="block";
+
+  caseIndex=0;
+
+  renderCase();
+
+}
+
 
 function createOptions(
-container,
-items,
-type
+  element,
+  items,
+  type
 ){
 
-container.innerHTML="";
+  element.innerHTML="";
 
+  items.forEach((item,index)=>{
 
-items.forEach(
-(item,i)=>{
+    const button=document.createElement("button");
 
+    button.className="opt";
+    button.textContent=item;
 
-const btn=
-document.createElement("button");
+    button.onclick=()=>{
 
+      [...element.children].forEach(option=>{
+        option.classList.remove("sel","bad");
+      });
 
-btn.className="option";
+      button.classList.add("sel");
 
+      if(type==="judgment"){
+        selectedJudgment=item;
+      }else{
+        selectedReason=index;
+      }
 
-btn.textContent=item;
+      $("msg").className="msg";
+      $("hint").className="hint";
 
+      $("check").disabled=
+        selectedJudgment===null ||
+        selectedReason===null;
 
-btn.onclick=function(){
+    };
 
+    element.appendChild(button);
 
-[...container.children]
-.forEach(x=>{
-
-x.classList.remove("selected");
-
-x.classList.remove("wrongOption");
-
-});
-
-
-btn.classList.add("selected");
-
-
-if(type==="judgment"){
-
-selectedJudgment=item;
-
-}else{
-
-selectedReason=i;
+  });
 
 }
 
 
-feedback.className=
-"feedback";
+function renderCase(){
+
+  const section=sections[sectionIndex];
+  const current=section.cases[caseIndex];
+
+  tries=0;
+
+  selectedJudgment=null;
+  selectedReason=null;
+
+  $("topic").textContent=section.title;
+
+  $("caseMeta").textContent=
+    `الموقف ${caseIndex+1} من ${section.cases.length}`;
+
+  $("caseText").textContent=current.text;
+
+  $("secMeta").textContent=
+    `القسم ${sectionIndex+1} من ${sections.length}`;
+
+  $("mastery").textContent=
+    `✓ إتقان مباشر: ${firstCorrect}`;
+
+  $("bar").style.width=
+    `${((completedBefore()+1)/totalCases())*100}%`;
 
 
-hint.className=
-"hint";
+  if(current.question){
+
+    $("qLabel").textContent=
+      `① ${current.question}`;
+
+  }else{
+
+    $("qLabel").textContent=
+      "① حدّد الحكم";
+
+  }
 
 
-check.disabled=
+  createOptions(
+    $("judgments"),
+    current.judgmentOptions ||
+    [
+      "تجب الزكاة",
+      "لا تجب الزكاة"
+    ],
+    "judgment"
+  );
 
-selectedJudgment===null ||
 
-selectedReason===null;
+  createOptions(
+    $("reasons"),
+    current.reasons,
+    "reason"
+  );
 
+
+  $("msg").className="msg";
+  $("hint").className="hint";
+
+  $("check").style.display="block";
+  $("check").disabled=true;
+
+  $("next").style.display="none";
+
+}
+
+
+$("check").onclick=()=>{
+
+  const current=
+    sections[sectionIndex].cases[caseIndex];
+
+  tries++;
+
+
+  const judgmentCorrect=
+    selectedJudgment===current.judgment;
+
+  const reasonCorrect=
+    selectedReason===current.correctReason;
+
+
+  if(judgmentCorrect && reasonCorrect){
+
+    if(tries===1){
+      firstCorrect++;
+    }else{
+      afterHint++;
+    }
+
+
+    [...$("judgments").children]
+    .forEach(button=>{
+
+      if(button.textContent===current.judgment){
+        button.classList.add("ok");
+      }
+
+      button.disabled=true;
+
+    });
+
+
+    [...$("reasons").children]
+    .forEach((button,index)=>{
+
+      if(index===current.correctReason){
+        button.classList.add("ok");
+      }
+
+      button.disabled=true;
+
+    });
+
+
+    $("msg").className="msg ok";
+
+    $("msg").innerHTML=
+      "<b>✓ أحسنت! إجابة صحيحة</b><br>" +
+      current.feedback;
+
+
+    $("hint").className="hint";
+
+    $("check").style.display="none";
+
+    $("next").style.display="block";
+
+
+    if(
+      caseIndex===
+      sections[sectionIndex].cases.length-1
+    ){
+
+      if(
+        sectionIndex===
+        sections.length-1
+      ){
+
+        $("next").textContent=
+          "عرض النتيجة ←";
+
+      }else{
+
+        $("next").textContent=
+          "إنهاء القسم ←";
+
+      }
+
+    }else{
+
+      $("next").textContent=
+        "الموقف التالي ←";
+
+    }
+
+
+  }else{
+
+
+    [...$("judgments").children]
+    .forEach(button=>{
+
+      button.classList.remove("bad");
+
+      if(
+        button.classList.contains("sel") &&
+        !judgmentCorrect
+      ){
+        button.classList.add("bad");
+      }
+
+    });
+
+
+    [...$("reasons").children]
+    .forEach((button,index)=>{
+
+      button.classList.remove("bad");
+
+      if(
+        button.classList.contains("sel") &&
+        !reasonCorrect
+      ){
+        button.classList.add("bad");
+      }
+
+    });
+
+
+    $("msg").className="msg bad";
+
+    $("msg").innerHTML=
+      "<b>✕ ليست الإجابة الصحيحة بعد</b><br>" +
+      "راجع اختيارك ثم حاول مرة أخرى.";
+
+
+    $("hint").className="hint show";
+
+    $("hint").innerHTML=
+      "<b>💡 تلميح:</b> " +
+      current.hint;
+
+  }
 
 };
 
 
-container.appendChild(btn);
+$("next").onclick=()=>{
 
 
-});
+  if(
+    caseIndex <
+    sections[sectionIndex].cases.length-1
+  ){
 
-}
+    caseIndex++;
 
+    renderCase();
 
-/* =========================
-   عرض الموقف
-========================= */
 
-function render(){
+  }else if(
+    sectionIndex <
+    sections.length-1
+  ){
 
+    sectionIndex++;
 
-const c=
-cases[index];
+    showIntro();
 
 
-attempts=0;
+  }else{
 
-selectedJudgment=null;
+    finishActivity();
 
-selectedReason=null;
+  }
 
 
-topic.textContent=
-c.topic;
-
-
-caseText.textContent=
-c.text;
-
-
-document
-.getElementById("caseNumber")
-.textContent=
-
-arabicNumbers[index];
-
-
-document
-.getElementById("counter")
-.textContent=
-
-"الموقف "
-+(index+1)
-+" من "
-+cases.length;
-
-
-document
-.getElementById("mastery")
-.textContent=
-
-"✓ من أول محاولة: "
-+firstCorrect;
-
-
-document
-.getElementById("bar")
-.style.width=
-
-(((index+1)/cases.length)*100)
-+"%";
-
-
-let judgmentOptions;
-
-
-if(
-c.judgment===
-"لا تجب الزكاة في عين المال"
-){
-
-judgmentOptions=[
-
-"تجب الزكاة",
-
-"لا تجب الزكاة في عين المال"
-
-];
-
-}else{
-
-judgmentOptions=[
-
-"تجب الزكاة",
-
-"لا تجب الزكاة"
-
-];
-
-}
-
-
-createOptions(
-judgments,
-judgmentOptions,
-"judgment"
-);
-
-
-createOptions(
-reasons,
-c.reasons,
-"reason"
-);
-
-
-feedback.className=
-"feedback";
-
-
-feedback.innerHTML="";
-
-
-hint.className=
-"hint";
-
-
-hint.innerHTML="";
-
-
-check.style.display=
-"block";
-
-
-check.disabled=true;
-
-
-next.style.display=
-"none";
-
-}
-
-
-/* =========================
-   التحقق من الإجابة
-========================= */
-
-check.onclick=function(){
-
-
-const c=
-cases[index];
-
-
-attempts++;
-
-
-const correctJudgment=
-
-selectedJudgment===
-c.judgment;
-
-
-const correctReason=
-
-selectedReason===
-c.correctReason;
-
-
-const correct=
-
-correctJudgment &&
-correctReason;
-
-
-/* الإجابة الصحيحة */
-
-if(correct){
-
-
-if(attempts===1){
-
-firstCorrect++;
-
-}else{
-
-afterHint++;
-
-}
-
-
-/* تلوين الحكم الصحيح */
-
-[...judgments.children]
-.forEach(btn=>{
-
-
-if(
-btn.textContent===
-c.judgment
-){
-
-btn.classList.remove(
-"selected"
-);
-
-btn.classList.add(
-"correctOption"
-);
-
-}
-
-
-btn.disabled=true;
-
-
-});
-
-
-/* تلوين السبب الصحيح */
-
-[...reasons.children]
-.forEach((btn,i)=>{
-
-
-if(
-i===
-c.correctReason
-){
-
-btn.classList.remove(
-"selected"
-);
-
-btn.classList.add(
-"correctOption"
-);
-
-}
-
-
-btn.disabled=true;
-
-
-});
-
-
-feedback.className=
-"feedback correct";
-
-
-feedback.innerHTML=
-
-'<div class="feedbackTitle">'
-+
-'✓ أحسنت! إجابة صحيحة'
-+
-'</div>'
-+
-c.feedback;
-
-
-hint.className=
-"hint";
-
-
-check.style.display=
-"none";
-
-
-next.style.display=
-"block";
-
-
-document
-.getElementById("mastery")
-.textContent=
-
-"✓ من أول محاولة: "
-+firstCorrect;
-
-
-/* الإجابة الخاطئة */
-
-}else{
-
-
-/* تلوين الحكم الخاطئ */
-
-[...judgments.children]
-.forEach(btn=>{
-
-
-btn.classList.remove(
-"wrongOption"
-);
-
-
-if(
-btn.classList.contains("selected")
-&&
-!correctJudgment
-){
-
-btn.classList.add(
-"wrongOption"
-);
-
-}
-
-
-});
-
-
-/* تلوين السبب الخاطئ */
-
-[...reasons.children]
-.forEach((btn,i)=>{
-
-
-btn.classList.remove(
-"wrongOption"
-);
-
-
-if(
-btn.classList.contains("selected")
-&&
-!correctReason
-){
-
-btn.classList.add(
-"wrongOption"
-);
-
-}
-
-
-});
-
-
-feedback.className=
-"feedback wrong";
-
-
-feedback.innerHTML=
-
-'<div class="feedbackTitle">'
-+
-'✕ ليست الإجابة الصحيحة بعد'
-+
-'</div>'
-+
-'راجع اختيارك ثم حاول مرة أخرى.';
-
-
-hint.className=
-"hint show";
-
-
-hint.innerHTML=
-
-"<strong>💡 تلميح:</strong> "
-+
-c.hint;
-
-
-}
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 };
 
 
-/* =========================
-   الموقف التالي
-========================= */
+function finishActivity(){
 
-next.onclick=function(){
-
-
-index++;
+  $("activity").style.display="none";
+  $("intro").style.display="none";
+  $("result").style.display="block";
 
 
-if(
-index<
-cases.length
-){
-
-render();
+  $("score").textContent=
+    `${firstCorrect} / ${totalCases()}`;
 
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+  $("first").textContent=
+    firstCorrect;
 
 
-}else{
+  $("assisted").textContent=
+    afterHint;
 
 
-finish();
+  if(firstCorrect===totalCases()){
 
+    $("finalMsg").textContent=
+      "ممتاز! أتقنت جميع المواقف من المحاولة الأولى.";
 
-}
+  }
 
-};
+  else if(
+    firstCorrect >=
+    Math.ceil(totalCases()*0.75)
+  ){
 
+    $("finalMsg").textContent=
+      "أداء جيد جدًا. راجع المواقف التي احتجت فيها إلى تلميح لتثبيت الفهم.";
 
-/* =========================
-   النتيجة النهائية
-========================= */
+  }
 
-function finish(){
+  else{
 
+    $("finalMsg").textContent=
+      "أكملت النشاط. راجع شروط وضوابط الأموال الزكوية، ثم أعد المحاولة لرفع مستوى الإتقان.";
 
-document
-.getElementById("activity")
-.style.display=
-"none";
-
-
-document
-.getElementById("result")
-.style.display=
-"block";
-
-
-document
-.getElementById("finalScore")
-.textContent=
-
-firstCorrect
-+" / "
-+cases.length;
-
-
-document
-.getElementById("firstStat")
-.textContent=
-
-firstCorrect;
-
-
-document
-.getElementById("hintStat")
-.textContent=
-
-afterHint;
-
-
-let message;
-
-
-if(
-firstCorrect===
-cases.length
-){
-
-message=
-"ممتاز! أتقنت تطبيق الأحكام والضوابط على جميع المواقف من المحاولة الأولى.";
+  }
 
 }
 
-else if(
-firstCorrect>=4
-){
-
-message=
-"أداء جيد جدًا. راجع المواقف التي احتجت فيها إلى تلميح لتثبيت الفهم.";
-
-}
-
-else{
-
-message=
-"أكملت النشاط. راجع شروط وضوابط الأموال الزكوية، ثم أعد المحاولة لرفع مستوى الإتقان.";
-
-}
-
-
-document
-.getElementById("finalMessage")
-.textContent=
-message;
-
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-
-}
-
-
-/* =========================
-   إعادة النشاط
-========================= */
 
 function restart(){
 
+  sectionIndex=0;
+  caseIndex=0;
 
-index=0;
+  tries=0;
 
-firstCorrect=0;
+  firstCorrect=0;
+  afterHint=0;
 
-afterHint=0;
+  selectedJudgment=null;
+  selectedReason=null;
 
+  showIntro();
 
-document
-.getElementById("result")
-.style.display=
-"none";
-
-
-document
-.getElementById("activity")
-.style.display=
-"block";
-
-
-render();
-
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
 
-/* بدء النشاط */
-
-render();
+showIntro();
 
 </script>
 
-
 </body>
-
 </html>
